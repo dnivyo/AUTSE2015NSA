@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <p>Testing start page jsp</p>
     </body>
 </html>
