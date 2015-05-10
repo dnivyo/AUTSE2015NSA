@@ -21,8 +21,8 @@ public class Methodology implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    String name;
-    String description;
+    private String name;
+    private String description;
 
     public Long getId() {
         return id;
@@ -55,6 +55,22 @@ public class Methodology implements Serializable {
     @Override
     public String toString() {
         return "nz.aut.se2015.nsa.persist.Methodology[ id=" + id + " ]";
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
     
 }

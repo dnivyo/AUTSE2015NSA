@@ -7,16 +7,21 @@ package nz.aut.se2015.nsa.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import nz.aut.se2015.nsa.persist.Methodology;
+import nz.aut.se2015.nsa.persist.MethodologyFacadeLocal;
 
 /**
  *
  * @author Øyvind
  */
 public class IndexServlet extends HttpServlet {
+    @EJB
+    private MethodologyFacadeLocal methodologyFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,6 +34,10 @@ public class IndexServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Methodology methodology = new Methodology();
+        methodology.setName(request.getParameter("name"));
+        methodology.setDescription(request.getParameter("description"));
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -38,7 +47,7 @@ public class IndexServlet extends HttpServlet {
             out.println("<title>Servlet IndexServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet IndexServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Saved " + request.getParameter("name") + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

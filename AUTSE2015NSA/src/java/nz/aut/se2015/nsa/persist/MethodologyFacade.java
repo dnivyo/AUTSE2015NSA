@@ -5,11 +5,9 @@
  */
 package nz.aut.se2015.nsa.persist;
 
-import nz.aut.se2015.nsa.persist.MethodologyFacadeLocal;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import nz.aut.se2015.nsa.persist.Methodology;
 
 /**
  *

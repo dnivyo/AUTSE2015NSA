@@ -7,7 +7,6 @@ package nz.aut.se2015.nsa.persist;
 
 import java.util.List;
 import javax.ejb.Local;
-import nz.aut.se2015.nsa.persist.Methodology;
 
 /**
  *
