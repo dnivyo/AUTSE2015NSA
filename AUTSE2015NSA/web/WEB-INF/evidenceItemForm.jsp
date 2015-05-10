@@ -5,11 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="nz.aut.se2015.nsa.persist.EvidenceItem"%>
+<jsp:useBean id="evidenceItem" class="nz.aut.se2015.nsa.persist.EvidenceItem" scope="session"/>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="default.css" rel="stylesheet" type="text/css" />
+        <link href="WEB-INF/default.css" rel="stylesheet" type="text/css" />
         <title>JSP Page</title>
     </head>
     <body>
@@ -18,7 +20,7 @@
     <p>Software Engineering Research Laboratory Education Repository</p></a></h1>
 	<h2>
     	Login<br/>
-        <form type="POST">
+        <form method="POST">
         	<input type="text" name="username" size="25" value="">
     	    <input type="password" name="password" size="25" value=""> <br/>
 	        <input type="submit" value="Login"/> <input type="button" value="Register"/>
@@ -37,43 +39,42 @@
 		<div style="padding: 20px;">
 			<h2>Add Evidence</h2>
             <h3>Evidence Item</h3>
-            <form type"POST">
+            <form action="/AUTSE2015NSA/EvidenceItemFormServlet" method="POST">
 				<p>
                 	Context: why <br/>
-                	<input type="text" />
+                	<input type="text" name="contextWhy" value="<jsp:getProperty name="evidenceItem" property="contextWhy"/>"/>
         	    </p>
                 <p>
                 	Context: who <br/>
-                	<input type="text" />
+                	<input type="text" name="contextWho" value="<jsp:getProperty name="evidenceItem" property="contextWho"/>"/>
         	    </p>
                 <p>
                 	Context: what <br/>
-                	<input type="text" />
+                	<input type="text" name="contextWhat" value="<jsp:getProperty name="evidenceItem" property="contextWhat"/>"/>
         	    </p>
                 <p>
                 	Context: where <br/>
-                	<input type="text" />
+                	<input type="text" name="contextWhere" value="<jsp:getProperty name="evidenceItem" property="contextWhere"/>"/>
         	    </p>
                 <p>
                 	Context: when <br/>
-                    <input type="text" />
-                	<!--<input type="date" /> -->
+                    <input type="text" name="contextWhen" value="<jsp:getProperty name="evidenceItem" property="contextWhen"/>"/>
         	    </p>
                 <p>
                 	Context: how <br/>
-                	<input type="text" />
+                	<input type="text" name="contextHow" value="<jsp:getProperty name="evidenceItem" property="contextHow"/>"/>
         	    </p>
                 <p>
                 	Benefit under test<br/>
-                	<input type="text" />
+                	<input type="text" name="benefitOutcome" value="<jsp:getProperty name="evidenceItem" property="benefitOutcome"/>"/>
         	    </p>
                 <p>
                 	Result<br/>
-                	<input type="text" />
+                	<input type="text" name="evidenceItemResult" value="<jsp:getProperty name="evidenceItem" property="evidenceItemResult"/>"/>
         	    </p>
                 <p>
                 	Method implementation integrity<br/>
-                	<input type="text" />
+                	<input type="text" name="methodImplementationIntegrity" value="<jsp:getProperty name="evidenceItem" property="methodImplementationIntegrity"/>"/>
         	    </p>
                 <input type="submit" value="Next"/>
             </form>
