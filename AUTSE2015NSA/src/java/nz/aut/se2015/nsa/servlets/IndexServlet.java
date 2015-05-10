@@ -35,10 +35,10 @@ public class IndexServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Methodology methodology = new Methodology();
+ Methodology methodology = new Methodology();
         methodology.setName(request.getParameter("name"));
         methodology.setDescription(request.getParameter("description"));
-
+        methodologyFacade.create(methodology);
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -49,6 +49,7 @@ public class IndexServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Saved " + request.getParameter("name") + "</h1>");
+            out.println("<p>Description: " + request.getParameter("description") + "</p>");
             out.println("</body>");
             out.println("</html>");
         }
