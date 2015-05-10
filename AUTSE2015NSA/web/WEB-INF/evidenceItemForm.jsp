@@ -9,9 +9,10 @@
 <jsp:useBean id="evidenceItem" class="nz.aut.se2015.nsa.persist.EvidenceItem" scope="session"/>
 <!DOCTYPE html>
 <html>
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="WEB-INF/default.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="css/default.css" type="text/css" />
         <title>JSP Page</title>
     </head>
     <body>
