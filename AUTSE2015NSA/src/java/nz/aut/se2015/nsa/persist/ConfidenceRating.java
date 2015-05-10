@@ -28,6 +28,14 @@ public class ConfidenceRating implements Serializable {
     private String reason;
     private String rater;
 
+    public ConfidenceRating() {
+        this.confidenceLevel = "";
+        this.reason = "";
+        this.rater = "";
+    }
+    
+    
+
     public Long getId() {
         return id;
     }

@@ -28,6 +28,12 @@ public class CredibilityRating implements Serializable {
     private String reason;
     private String rater;
 
+    public CredibilityRating() {
+        this.credibilityLevel = "";
+        this.reason = "";
+        this.rater = "";
+    }
+
     public Long getId() {
         return id;
     }

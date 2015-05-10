@@ -24,6 +24,11 @@ public class Methodology implements Serializable {
     private String name;
     private String description;
 
+    public Methodology() {
+        this.name = "";
+        this.description = "";
+    }
+
     public Long getId() {
         return id;
     }

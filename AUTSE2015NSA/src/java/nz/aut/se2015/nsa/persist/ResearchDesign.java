@@ -29,6 +29,13 @@ public class ResearchDesign implements Serializable {
     private String metrics;
     private String participants;
 
+    public ResearchDesign() {
+        this.question = "";
+        this.method = "";
+        this.metrics = "";
+        this.participants = "";
+    }
+    
     public Long getId() {
         return id;
     }

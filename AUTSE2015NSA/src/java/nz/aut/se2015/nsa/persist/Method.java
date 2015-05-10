@@ -28,6 +28,11 @@ public class Method implements Serializable {
     @OneToMany
     private List<Methodology> methodologies;
 
+    public Method() {
+        this.name = "";
+        this.description = "";
+    }
+
     public Long getId() {
         return id;
     }

@@ -33,6 +33,13 @@ public class EvidenceSource implements Serializable {
     @OneToOne
     private ResearchDesign researchDesign;
 
+    public EvidenceSource() {
+        this.bibRef = "";
+        this.researchLevel = "";
+    }
+    
+    
+
     public Long getId() {
         return id;
     }
