@@ -39,6 +39,18 @@ public class EvidenceItem implements Serializable {
     private EvidenceSource evidenceSources;
     @OneToMany(mappedBy = "evidenceItem")
     private List<ConfidenceRating> confidenceRatings;
+
+    public EvidenceItem() {
+        this.contextWhy = "";
+        this.contextWho = "";
+        this.contextWhat = "";
+        this.contextWhere = "";
+        this.contextWhen = "";
+        this.contextHow = "";
+        this.benefitOutcome = "";
+        this.evidenceItemResult = "";
+        this.methodImplementationIntegrity = "";
+    }
     
     
 

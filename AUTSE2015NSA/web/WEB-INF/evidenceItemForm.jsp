@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="nz.aut.se2015.nsa.persist.EvidenceItem"%>
-<jsp:useBean id="evidenceItem" class="nz.aut.se2015.nsa.persist.EvidenceItem" scope="session"/>
+
 <!DOCTYPE html>
 <html>
     
@@ -41,6 +41,7 @@
 			<h2>Add Evidence</h2>
             <h3>Evidence Item</h3>
             <form action="/AUTSE2015NSA/EvidenceItemFormServlet" method="POST">
+                <jsp:useBean id="evidenceItem" class="nz.aut.se2015.nsa.persist.EvidenceItem" scope="session"/>
 				<p>
                 	Context: why <br/>
                 	<input type="text" name="contextWhy" value="<jsp:getProperty name="evidenceItem" property="contextWhy"/>"/>

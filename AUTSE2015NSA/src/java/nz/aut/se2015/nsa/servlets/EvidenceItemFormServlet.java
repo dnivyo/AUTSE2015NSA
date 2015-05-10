@@ -26,33 +26,7 @@ public class EvidenceItemFormServlet extends HttpServlet {
     
     EvidenceItem evidenceItem;
     HttpSession httpSession;
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        httpSession = request.getSession(true);
-        
-        //Check if there is allready an evidenceItem bean in the session.
-        if (httpSession.getAttribute("evidenceItem") == null){
-            evidenceItem = new EvidenceItem();
-            httpSession.setAttribute("evidenceItem", evidenceItem);
-        } else{
-            evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
-        }
-            
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/evidenceItemForm.jsp");
-        dispatcher.forward(request, response);
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -64,16 +38,13 @@ public class EvidenceItemFormServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
         httpSession = request.getSession(true);
         
         //Check if there is allready an evidenceItem bean in the session.
         if (httpSession.getAttribute("evidenceItem") == null){
             evidenceItem = new EvidenceItem();
             httpSession.setAttribute("evidenceItem", evidenceItem);
-            System.out.println("GET: evidenceItem not found");
         } else{
-            System.out.println("GET: evidenceItem found");
             evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
         }
             
@@ -93,14 +64,14 @@ public class EvidenceItemFormServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
         httpSession = request.getSession(true);
+        
+        //Check if there is allready an evidenceItem bean in the session.
         if (httpSession.getAttribute("evidenceItem") == null) {
             evidenceItem = new EvidenceItem();
-            System.out.println("POST: evidenceItem not found");
+            httpSession.setAttribute("evidenceItem", evidenceItem);
         } else {
             evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
-            System.out.println("POST: evidenceItem found");
         }
 
         evidenceItem.setContextHow(request.getParameter("contextHow"));
@@ -120,6 +91,7 @@ public class EvidenceItemFormServlet extends HttpServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/evidenceItemForm.jsp");
         //dispatcher.forward(request, response);
         dispatcher.include(request, response);
+
     }
 
     /**
