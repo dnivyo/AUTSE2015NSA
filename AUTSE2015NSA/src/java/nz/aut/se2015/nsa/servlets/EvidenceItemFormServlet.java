@@ -90,7 +90,8 @@ public class EvidenceItemFormServlet extends HttpServlet {
         //evidenceItemFacade.create(evidenceItem);
         //evidenceItemFacade.edit(evidenceItem);
         
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodItemForm.jsp");        
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodForm.jsp");
+        //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodItemForm.jsp");        
         dispatcher.forward(request, response);
         //dispatcher.include(request, response);
     }
