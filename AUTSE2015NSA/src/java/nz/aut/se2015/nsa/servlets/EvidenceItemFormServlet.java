@@ -38,6 +38,7 @@ public class EvidenceItemFormServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("EvidenceItemFormServlet: doGet");
         httpSession = request.getSession(true);
         
         //Check if there is allready an evidenceItem bean in the session.
@@ -47,10 +48,10 @@ public class EvidenceItemFormServlet extends HttpServlet {
         } else{
             evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
         }
-            
+        
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/evidenceItemForm.jsp");
-        //dispatcher.forward(request, response);
-        dispatcher.include(request, response);
+        dispatcher.forward(request, response);
+        //dispatcher.include(request, response);
     }
 
     /**
@@ -64,6 +65,7 @@ public class EvidenceItemFormServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("EvidenceItemFormServlet: doPost");
         httpSession = request.getSession(true);
         
         //Check if there is allready an evidenceItem bean in the session.
@@ -73,7 +75,7 @@ public class EvidenceItemFormServlet extends HttpServlet {
         } else {
             evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
         }
-
+        
         evidenceItem.setContextHow(request.getParameter("contextHow"));
         evidenceItem.setContextWhat(request.getParameter("contextWhat"));
         evidenceItem.setContextWhen(request.getParameter("contextWhen"));
@@ -88,21 +90,8 @@ public class EvidenceItemFormServlet extends HttpServlet {
         //evidenceItemFacade.create(evidenceItem);
         //evidenceItemFacade.edit(evidenceItem);
         
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/evidenceItemForm.jsp");
-        //dispatcher.forward(request, response);
-        dispatcher.include(request, response);
-
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodItemForm.jsp");        
+        dispatcher.forward(request, response);
+        //dispatcher.include(request, response);
     }
-
-    /**
-     *     
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

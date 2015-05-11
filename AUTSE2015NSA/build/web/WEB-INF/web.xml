@@ -8,6 +8,14 @@
         <servlet-name>EvidenceItemFormServlet</servlet-name>
         <servlet-class>nz.aut.se2015.nsa.servlets.EvidenceItemFormServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MethodFormServlet</servlet-name>
+        <servlet-class>nz.aut.se2015.nsa.servlets.MethodFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudyFormServlet</servlet-name>
+        <servlet-class>nz.aut.se2015.nsa.servlets.StudyFormServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/IndexServlet</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>EvidenceItemFormServlet</servlet-name>
         <url-pattern>/EvidenceItemFormServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MethodFormServlet</servlet-name>
+        <url-pattern>/MethodFormServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudyFormServlet</servlet-name>
+        <url-pattern>/StudyFormServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
