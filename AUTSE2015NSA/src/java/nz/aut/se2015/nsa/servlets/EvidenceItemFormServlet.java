@@ -13,18 +13,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import nz.aut.se2015.nsa.persist.CredibilityRating;
 import nz.aut.se2015.nsa.persist.EvidenceItem;
 import nz.aut.se2015.nsa.persist.EvidenceItemFacadeLocal;
+import nz.aut.se2015.nsa.persist.EvidenceSource;
+import nz.aut.se2015.nsa.persist.Method;
+import nz.aut.se2015.nsa.persist.Methodology;
+import nz.aut.se2015.nsa.persist.ResearchDesign;
 
 /**
  *
  * @author Øyvind
  */
 public class EvidenceItemFormServlet extends HttpServlet {
+
     @EJB
     private EvidenceItemFacadeLocal evidenceItemFacade;
     
+    EvidenceSource evidenceSource;
+    CredibilityRating credibilityRating;
+    ResearchDesign researchDesign;
     EvidenceItem evidenceItem;
+    Method method;
+    Methodology methodology;
     HttpSession httpSession;
 
     /**
@@ -40,15 +51,15 @@ public class EvidenceItemFormServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("EvidenceItemFormServlet: doGet");
         httpSession = request.getSession(true);
-        
-        //Check if there is allready an evidenceItem bean in the session.
-        if (httpSession.getAttribute("evidenceItem") == null){
-            evidenceItem = new EvidenceItem();
-            httpSession.setAttribute("evidenceItem", evidenceItem);
-        } else{
-            evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
-        }
-        
+
+//        //Check if there is allready an evidenceItem bean in the session.
+//        if (httpSession.getAttribute("evidenceItem") == null) {
+//            evidenceItem = new EvidenceItem();
+//            httpSession.setAttribute("evidenceItem", evidenceItem);
+//        } else {
+//            evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
+//        }
+        this.setAllParameters(request);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/evidenceItemForm.jsp");
         dispatcher.forward(request, response);
         //dispatcher.include(request, response);
@@ -67,32 +78,110 @@ public class EvidenceItemFormServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("EvidenceItemFormServlet: doPost");
         httpSession = request.getSession(true);
-        
+
+//        //Check if there is allready an evidenceItem bean in the session.
+//        if (httpSession.getAttribute("evidenceItem") == null) {
+//            evidenceItem = new EvidenceItem();
+//            httpSession.setAttribute("evidenceItem", evidenceItem);
+//        } else {
+//            evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
+//        }
+//        
+//        evidenceItem.setContextHow(request.getParameter("contextHow"));
+//        evidenceItem.setContextWhat(request.getParameter("contextWhat"));
+//        evidenceItem.setContextWhen(request.getParameter("contextWhen"));
+//        evidenceItem.setContextWhere(request.getParameter("contextWhere"));
+//        evidenceItem.setContextWho(request.getParameter("contextWho"));
+//        evidenceItem.setContextWhy(request.getParameter("contextWhy"));
+//        evidenceItem.setBenefitOutcome(request.getParameter("benefitOutcome"));
+//        evidenceItem.setEvidenceItemResult(request.getParameter("evidenceItemResult"));
+//        evidenceItem.setMethodImplementationIntegrity(request.getParameter("methodImplementationIntegrity"));
+//        
+//        httpSession.setAttribute("evidenceItem", evidenceItem);
+        //evidenceItemFacade.create(evidenceItem);
+        //evidenceItemFacade.edit(evidenceItem);
+        this.setAllParameters(request);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodForm.jsp");
+        //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodItemForm.jsp");        
+        dispatcher.forward(request, response);
+        //dispatcher.include(request, response);
+    }
+
+    public void setAllParameters(HttpServletRequest request) {
+        //Check if there is allready an evidenceSource bean in the session.
+        if (httpSession.getAttribute("evidenceSource") == null) {
+            evidenceSource = new EvidenceSource();
+            httpSession.setAttribute("evidenceSource", evidenceSource);
+        } else {
+            evidenceSource = (EvidenceSource) httpSession.getAttribute("evidenceSource");
+            evidenceSource.setBibRef(request.getParameter("bibRef"));
+            evidenceSource.setResearchLevel(request.getParameter("researchLevel"));
+            httpSession.setAttribute("evidenceSource", evidenceSource);
+        }
+
+        //Check if there is allready an credibilityRating bean in the session.
+        if (httpSession.getAttribute("credibilityRating") == null) {
+            credibilityRating = new CredibilityRating();
+            httpSession.setAttribute("credibilityRating", credibilityRating);
+        } else {
+            credibilityRating = (CredibilityRating) httpSession.getAttribute("credibilityRating");
+            credibilityRating.setCredibilityLevel(request.getParameter("credibilityLevel"));
+            credibilityRating.setReason(request.getParameter("reason"));
+            credibilityRating.setRater(request.getParameter("rater"));
+            httpSession.setAttribute("credibilityRating", credibilityRating);
+        }
+
+        //Check if there is allready an researchDesign bean in the session.
+        if (httpSession.getAttribute("researchDesign") == null) {
+            researchDesign = new ResearchDesign();
+            httpSession.setAttribute("researchDesign", researchDesign);
+            httpSession.setAttribute("researchDesign", researchDesign);
+        } else {
+            researchDesign = (ResearchDesign) httpSession.getAttribute("researchDesign");
+            researchDesign.setQuestion(request.getParameter("question"));
+            researchDesign.setMethod(request.getParameter("method"));
+            researchDesign.setParticipants(request.getParameter("participants"));
+            researchDesign.setMetrics(request.getParameter("metrics"));
+        }
+
         //Check if there is allready an evidenceItem bean in the session.
         if (httpSession.getAttribute("evidenceItem") == null) {
             evidenceItem = new EvidenceItem();
             httpSession.setAttribute("evidenceItem", evidenceItem);
         } else {
             evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
+            evidenceItem.setContextHow(request.getParameter("contextHow"));
+            evidenceItem.setContextWhat(request.getParameter("contextWhat"));
+            evidenceItem.setContextWhen(request.getParameter("contextWhen"));
+            evidenceItem.setContextWhere(request.getParameter("contextWhere"));
+            evidenceItem.setContextWho(request.getParameter("contextWho"));
+            evidenceItem.setContextWhy(request.getParameter("contextWhy"));
+            evidenceItem.setBenefitOutcome(request.getParameter("benefitOutcome"));
+            evidenceItem.setEvidenceItemResult(request.getParameter("evidenceItemResult"));
+            evidenceItem.setMethodImplementationIntegrity(request.getParameter("methodImplementationIntegrity"));
+            httpSession.setAttribute("evidenceItem", evidenceItem);
         }
-        
-        evidenceItem.setContextHow(request.getParameter("contextHow"));
-        evidenceItem.setContextWhat(request.getParameter("contextWhat"));
-        evidenceItem.setContextWhen(request.getParameter("contextWhen"));
-        evidenceItem.setContextWhere(request.getParameter("contextWhere"));
-        evidenceItem.setContextWho(request.getParameter("contextWho"));
-        evidenceItem.setContextWhy(request.getParameter("contextWhy"));
-        evidenceItem.setBenefitOutcome(request.getParameter("benefitOutcome"));
-        evidenceItem.setEvidenceItemResult(request.getParameter("evidenceItemResult"));
-        evidenceItem.setMethodImplementationIntegrity(request.getParameter("methodImplementationIntegrity"));
-        
-        httpSession.setAttribute("evidenceItem", evidenceItem);
-        //evidenceItemFacade.create(evidenceItem);
-        //evidenceItemFacade.edit(evidenceItem);
-        
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodForm.jsp");
-        //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodItemForm.jsp");        
-        dispatcher.forward(request, response);
-        //dispatcher.include(request, response);
+
+        //Check if there is allready an method bean in the session.
+        if (httpSession.getAttribute("method") == null) {
+            method = new Method();
+            httpSession.setAttribute("method", method);
+        } else {
+            method = (Method) httpSession.getAttribute("method");
+            method.setName(request.getParameter("methodName"));
+            method.setDescription(request.getParameter("methodDescription"));
+            httpSession.setAttribute("method", method);
+        }
+
+        //Check if there is allready an methodology bean in the session.
+        if (httpSession.getAttribute("methodology") == null) {
+            methodology = new Methodology();
+            httpSession.setAttribute("methodology", methodology);
+        } else {
+            methodology = (Methodology) httpSession.getAttribute("methodology");
+            methodology.setName(request.getParameter("methodologyName"));
+            methodology.setDescription(request.getParameter("methodologyDescription"));
+            httpSession.setAttribute("methodology", methodology);
+        }
     }
 }
