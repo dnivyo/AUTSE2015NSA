@@ -120,9 +120,11 @@ public class MethodFormServlet extends HttpServlet {
             httpSession.setAttribute("evidenceSource", evidenceSource);
         } else {
             evidenceSource = (EvidenceSource) httpSession.getAttribute("evidenceSource");
-            evidenceSource.setBibRef(request.getParameter("bibRef"));
-            evidenceSource.setResearchLevel(request.getParameter("researchLevel"));
-            httpSession.setAttribute("evidenceSource", evidenceSource);
+            if (request.getParameter("bibRef") != null) {
+                evidenceSource.setBibRef(request.getParameter("bibRef"));
+                evidenceSource.setResearchLevel(request.getParameter("researchLevel"));
+                httpSession.setAttribute("evidenceSource", evidenceSource);
+            }
         }
 
         //Check if there is allready an credibilityRating bean in the session.
@@ -131,23 +133,30 @@ public class MethodFormServlet extends HttpServlet {
             httpSession.setAttribute("credibilityRating", credibilityRating);
         } else {
             credibilityRating = (CredibilityRating) httpSession.getAttribute("credibilityRating");
-            credibilityRating.setCredibilityLevel(request.getParameter("credibilityLevel"));
-            credibilityRating.setReason(request.getParameter("reason"));
-            credibilityRating.setRater(request.getParameter("rater"));
-            httpSession.setAttribute("credibilityRating", credibilityRating);
+            if (request.getParameter("credibilityLevel") != null) {
+                credibilityRating.setCredibilityLevel(request.getParameter("credibilityLevel"));
+                credibilityRating.setReason(request.getParameter("reason"));
+                credibilityRating.setRater(request.getParameter("rater"));
+                httpSession.setAttribute("credibilityRating", credibilityRating);
+            }
+
         }
 
         //Check if there is allready an researchDesign bean in the session.
         if (httpSession.getAttribute("researchDesign") == null) {
             researchDesign = new ResearchDesign();
             httpSession.setAttribute("researchDesign", researchDesign);
-            httpSession.setAttribute("researchDesign", researchDesign);
+
         } else {
             researchDesign = (ResearchDesign) httpSession.getAttribute("researchDesign");
-            researchDesign.setQuestion(request.getParameter("question"));
-            researchDesign.setMethod(request.getParameter("method"));
-            researchDesign.setParticipants(request.getParameter("participants"));
-            researchDesign.setMetrics(request.getParameter("metrics"));
+            if (request.getParameter("question") != null) {
+                researchDesign.setQuestion(request.getParameter("question"));
+                researchDesign.setMethod(request.getParameter("method"));
+                researchDesign.setParticipants(request.getParameter("participants"));
+                researchDesign.setMetrics(request.getParameter("metrics"));
+                httpSession.setAttribute("researchDesign", researchDesign);
+            }
+
         }
 
         //Check if there is allready an evidenceItem bean in the session.
@@ -156,16 +165,19 @@ public class MethodFormServlet extends HttpServlet {
             httpSession.setAttribute("evidenceItem", evidenceItem);
         } else {
             evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
-            evidenceItem.setContextHow(request.getParameter("contextHow"));
-            evidenceItem.setContextWhat(request.getParameter("contextWhat"));
-            evidenceItem.setContextWhen(request.getParameter("contextWhen"));
-            evidenceItem.setContextWhere(request.getParameter("contextWhere"));
-            evidenceItem.setContextWho(request.getParameter("contextWho"));
-            evidenceItem.setContextWhy(request.getParameter("contextWhy"));
-            evidenceItem.setBenefitOutcome(request.getParameter("benefitOutcome"));
-            evidenceItem.setEvidenceItemResult(request.getParameter("evidenceItemResult"));
-            evidenceItem.setMethodImplementationIntegrity(request.getParameter("methodImplementationIntegrity"));
-            httpSession.setAttribute("evidenceItem", evidenceItem);
+            if (request.getParameter("contextHow") != null) {
+                evidenceItem.setContextHow(request.getParameter("contextHow"));
+                evidenceItem.setContextWhat(request.getParameter("contextWhat"));
+                evidenceItem.setContextWhen(request.getParameter("contextWhen"));
+                evidenceItem.setContextWhere(request.getParameter("contextWhere"));
+                evidenceItem.setContextWho(request.getParameter("contextWho"));
+                evidenceItem.setContextWhy(request.getParameter("contextWhy"));
+                evidenceItem.setBenefitOutcome(request.getParameter("benefitOutcome"));
+                evidenceItem.setEvidenceItemResult(request.getParameter("evidenceItemResult"));
+                evidenceItem.setMethodImplementationIntegrity(request.getParameter("methodImplementationIntegrity"));
+                httpSession.setAttribute("evidenceItem", evidenceItem);
+            }
+
         }
 
         //Check if there is allready an method bean in the session.
@@ -174,9 +186,11 @@ public class MethodFormServlet extends HttpServlet {
             httpSession.setAttribute("method", method);
         } else {
             method = (Method) httpSession.getAttribute("method");
-            method.setName(request.getParameter("methodName"));
-            method.setDescription(request.getParameter("methodDescription"));
-            httpSession.setAttribute("method", method);
+            if (request.getParameter("methodName") != null) {
+                method.setName(request.getParameter("methodName"));
+                method.setDescription(request.getParameter("methodDescription"));
+                httpSession.setAttribute("method", method);
+            }
         }
 
         //Check if there is allready an methodology bean in the session.
@@ -185,9 +199,11 @@ public class MethodFormServlet extends HttpServlet {
             httpSession.setAttribute("methodology", methodology);
         } else {
             methodology = (Methodology) httpSession.getAttribute("methodology");
-            methodology.setName(request.getParameter("methodologyName"));
-            methodology.setDescription(request.getParameter("methodologyDescription"));
-            httpSession.setAttribute("methodology", methodology);
+            if (request.getParameter("methodologyName") != null) {
+                methodology.setName(request.getParameter("methodologyName"));
+                methodology.setDescription(request.getParameter("methodologyDescription"));
+                httpSession.setAttribute("methodology", methodology);
+            }
         }
     }
 }
