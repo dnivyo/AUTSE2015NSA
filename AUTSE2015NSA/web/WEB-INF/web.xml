@@ -19,6 +19,10 @@
         <servlet-name>StudyFormServlet</servlet-name>
         <servlet-class>nz.aut.se2015.nsa.servlets.StudyFormServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SubmitStudyServlet</servlet-name>
+        <servlet-class>nz.aut.se2015.nsa.servlets.SubmitStudyServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/IndexServlet</url-pattern>
@@ -34,6 +38,10 @@
     <servlet-mapping>
         <servlet-name>StudyFormServlet</servlet-name>
         <url-pattern>/StudyFormServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubmitStudyServlet</servlet-name>
+        <url-pattern>/SubmitStudyServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
