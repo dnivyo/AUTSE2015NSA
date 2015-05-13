@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -33,11 +32,11 @@ public class EvidenceItem implements Serializable {
     private String benefitOutcome;
     private String evidenceItemResult;
     private String methodImplementationIntegrity;
+    
     @OneToMany
     private List<Method> methods;
-    @ManyToOne
-    private EvidenceSource evidenceSources;
-    @OneToMany(mappedBy = "evidenceItem")
+    
+    @OneToMany
     private List<ConfidenceRating> confidenceRatings;
 
     public EvidenceItem() {
@@ -165,14 +164,6 @@ public class EvidenceItem implements Serializable {
 
     public void setMethods(List<Method> methods) {
         this.methods = methods;
-    }
-
-    public EvidenceSource getEvidenceSources() {
-        return evidenceSources;
-    }
-
-    public void setEvidenceSources(EvidenceSource evidenceSources) {
-        this.evidenceSources = evidenceSources;
     }
 
     public List<ConfidenceRating> getConfidenceRatings() {

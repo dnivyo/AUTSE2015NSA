@@ -20,16 +20,19 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class EvidenceSource implements Serializable {
-    @OneToMany(mappedBy = "evidenceSources")
-    private List<EvidenceItem> evidenceItems;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
     private String bibRef;
     private String researchLevel;
-    @OneToMany(mappedBy = "evidenceSource")
+    
+    @OneToMany
     private List<CredibilityRating> credibilityRatings;
+    @OneToMany
+    private List<EvidenceItem> evidenceItems;
     @OneToOne
     private ResearchDesign researchDesign;
 

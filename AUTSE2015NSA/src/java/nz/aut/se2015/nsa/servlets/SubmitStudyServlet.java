@@ -202,12 +202,14 @@ public class SubmitStudyServlet extends HttpServlet {
         evidenceItem.setMethods(methodList);
 
         List<ConfidenceRating> confidenceRatingList = new ArrayList();
-        confidenceRatingList.add(null);
+        confidenceRatingList.add(confidenceRating);
         evidenceItem.setConfidenceRatings(confidenceRatingList);
 
         List<CredibilityRating> credibilityRatingList = new ArrayList();
         credibilityRatingList.add(credibilityRating);
         evidenceSource.setCredibilityRatings(credibilityRatingList);
+        evidenceSource.setResearchDesign(researchDesign);
+        
 
         List<EvidenceItem> evidenceItemList = new ArrayList();
         evidenceItemList.add(evidenceItem);

@@ -18,17 +18,16 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class ResearchDesign implements Serializable {
-    @OneToOne(mappedBy = "researchDesign")
-    private EvidenceSource evidenceSource;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
     private String question;
     private String method;
     private String metrics;
     private String participants;
-
+    
     public ResearchDesign() {
         this.question = "";
         this.method = "";
@@ -100,13 +99,4 @@ public class ResearchDesign implements Serializable {
     public void setParticipants(String participants) {
         this.participants = participants;
     }
-
-    public EvidenceSource getEvidenceSource() {
-        return evidenceSource;
-    }
-
-    public void setEvidenceSource(EvidenceSource evidenceSource) {
-        this.evidenceSource = evidenceSource;
-    }
-    
 }

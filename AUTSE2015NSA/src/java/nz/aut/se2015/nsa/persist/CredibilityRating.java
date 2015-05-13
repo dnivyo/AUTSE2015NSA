@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 /**
  *
@@ -18,12 +17,11 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class CredibilityRating implements Serializable {
-    @ManyToOne
-    private EvidenceSource evidenceSource;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
     private String credibilityLevel;
     private String reason;
     private String rater;
@@ -90,13 +88,4 @@ public class CredibilityRating implements Serializable {
     public void setRater(String rater) {
         this.rater = rater;
     }
-
-    public EvidenceSource getEvidenceSource() {
-        return evidenceSource;
-    }
-
-    public void setEvidenceSource(EvidenceSource evidenceSource) {
-        this.evidenceSource = evidenceSource;
-    }
-    
 }

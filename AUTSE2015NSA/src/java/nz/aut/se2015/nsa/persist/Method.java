@@ -25,6 +25,7 @@ public class Method implements Serializable {
     private Long id;
     private String name;
     private String description;
+    
     @OneToMany
     private List<Methodology> methodologies;
 
