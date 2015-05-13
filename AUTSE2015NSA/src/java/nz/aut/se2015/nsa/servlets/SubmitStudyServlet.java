@@ -74,7 +74,12 @@ public class SubmitStudyServlet extends HttpServlet {
         httpSession = request.getSession(true);
         this.setAllParameters(request);
         this.createJPASubmittable();
-
+        
+        //Creating a new session to avoid bugs in the JPA. 
+        httpSession.invalidate();
+        httpSession = request.getSession(true);
+        this.setAllParameters(request);
+        
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/studyForm.jsp");
         dispatcher.forward(request, response);
     }
@@ -230,5 +235,6 @@ public class SubmitStudyServlet extends HttpServlet {
         System.out.println("evidenceItem...ok");
         evidenceSourceFacade.create(evidenceSource);
         System.out.println("evidenceSource...ok");
+        
     }
 }

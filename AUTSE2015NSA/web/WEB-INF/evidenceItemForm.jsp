@@ -77,7 +77,7 @@
                             Method implementation integrity<br/>
                             <input type="text" name="methodImplementationIntegrity" value="<jsp:getProperty name="evidenceItem" property="methodImplementationIntegrity"/>"/>
                         </p>
-                        <input type="submit" value="Next"/>
+                        <input type="submit" value="Previous"/><input type="submit" value="Save to DB"/><input type="submit" value="Next"/>
                     </form>
                 </div>
             </div>
