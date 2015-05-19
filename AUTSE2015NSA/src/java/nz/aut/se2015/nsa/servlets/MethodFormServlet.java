@@ -6,7 +6,6 @@
 package nz.aut.se2015.nsa.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -108,7 +107,14 @@ public class MethodFormServlet extends HttpServlet {
 //        httpSession.setAttribute("method", method);
 //        httpSession.setAttribute("methodology", methodology);
         this.setAllParameters(request);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/studyForm.jsp");
+        
+        // Check if next or previous was clicked
+        String url = "/WEB-INF/display.jsp";
+        if (request.getParameter("previous") != null) {
+            url = "/WEB-INF/evidenceItemForm.jsp";
+        }
+        
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
         //dispatcher.include(request, response);
     }

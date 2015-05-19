@@ -215,12 +215,10 @@ public class SubmitStudyServlet extends HttpServlet {
         evidenceSource.setCredibilityRatings(credibilityRatingList);
         evidenceSource.setResearchDesign(researchDesign);
         
-
         List<EvidenceItem> evidenceItemList = new ArrayList();
         evidenceItemList.add(evidenceItem);
         evidenceSource.setEvidenceItems(null);
 
-        
         methodologyFacade.create(methodology);
         System.out.println("methodology...ok");
         methodFacade.create(method);
@@ -235,6 +233,5 @@ public class SubmitStudyServlet extends HttpServlet {
         System.out.println("evidenceItem...ok");
         evidenceSourceFacade.create(evidenceSource);
         System.out.println("evidenceSource...ok");
-        
     }
 }

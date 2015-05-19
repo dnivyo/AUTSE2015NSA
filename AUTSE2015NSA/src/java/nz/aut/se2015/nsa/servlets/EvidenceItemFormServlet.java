@@ -101,7 +101,14 @@ public class EvidenceItemFormServlet extends HttpServlet {
         //evidenceItemFacade.create(evidenceItem);
         //evidenceItemFacade.edit(evidenceItem);
         this.setAllParameters(request);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodForm.jsp");
+        
+        // Check if next or previous was clicked
+        String url = "/WEB-INF/methodForm.jsp";
+        if (request.getParameter("previous") != null) {
+            url = "/WEB-INF/studyForm.jsp";
+        }
+        
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodItemForm.jsp");        
         dispatcher.forward(request, response);
         //dispatcher.include(request, response);
