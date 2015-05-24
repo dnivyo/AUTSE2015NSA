@@ -6,6 +6,8 @@
 package nz.aut.se2015.nsa.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,13 +15,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import nz.aut.se2015.nsa.persist.ConfidenceRating;
+import nz.aut.se2015.nsa.persist.ConfidenceRatingFacadeLocal;
 import nz.aut.se2015.nsa.persist.CredibilityRating;
+import nz.aut.se2015.nsa.persist.CredibilityRatingFacadeLocal;
 import nz.aut.se2015.nsa.persist.EvidenceItem;
 import nz.aut.se2015.nsa.persist.EvidenceItemFacadeLocal;
 import nz.aut.se2015.nsa.persist.EvidenceSource;
+import nz.aut.se2015.nsa.persist.EvidenceSourceFacadeLocal;
 import nz.aut.se2015.nsa.persist.Method;
+import nz.aut.se2015.nsa.persist.MethodFacadeLocal;
 import nz.aut.se2015.nsa.persist.Methodology;
+import nz.aut.se2015.nsa.persist.MethodologyFacadeLocal;
 import nz.aut.se2015.nsa.persist.ResearchDesign;
+import nz.aut.se2015.nsa.persist.ResearchDesignFacadeLocal;
 
 /**
  *
@@ -29,7 +38,19 @@ public class DisplayServlet extends HttpServlet {
 
     @EJB
     private EvidenceItemFacadeLocal evidenceItemFacade;
-    
+    @EJB
+    private MethodologyFacadeLocal methodologyFacade;
+    @EJB
+    private ConfidenceRatingFacadeLocal confidenceRatingFacade;
+    @EJB
+    private CredibilityRatingFacadeLocal credibilityRatingFacade;
+    @EJB
+    private EvidenceSourceFacadeLocal evidenceSourceFacade;
+    @EJB
+    private MethodFacadeLocal methodFacade;
+    @EJB
+    private ResearchDesignFacadeLocal researchDesignFacade;
+
     EvidenceSource evidenceSource;
     CredibilityRating credibilityRating;
     ResearchDesign researchDesign;
@@ -68,9 +89,9 @@ public class DisplayServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         httpSession = request.getSession(true);
-        
+
         this.setAllParameters(request);
-        
+        this.createJPASubmittable();
         // Check if next or previous was clicked
         String url = "/WEB-INF/index.jsp";
         if (request.getParameter("previous") != null) {
@@ -168,7 +189,7 @@ public class DisplayServlet extends HttpServlet {
                 httpSession.setAttribute("methodology", methodology);
             }
         }
-        
+
         //Check if there is allready an evidenceSource bean in the session.
         if (httpSession.getAttribute("evidenceSource") == null) {
             evidenceSource = new EvidenceSource();
@@ -256,7 +277,7 @@ public class DisplayServlet extends HttpServlet {
                 httpSession.setAttribute("methodology", methodology);
             }
         }
-        
+
         //Check if there is allready an evidenceSource bean in the session.
         if (httpSession.getAttribute("evidenceSource") == null) {
             evidenceSource = new EvidenceSource();
@@ -347,4 +368,44 @@ public class DisplayServlet extends HttpServlet {
             }
         }
     }
+    public void createJPASubmittable() {
+        ConfidenceRating confidenceRating = new ConfidenceRating();
+        
+        List<Methodology> methodologyList = new ArrayList();
+        methodologyList.add(methodology);
+        method.setMethodologies(methodologyList);
+
+        List<Method> methodList = new ArrayList();
+        methodList.add(method);
+        evidenceItem.setMethods(methodList);
+
+        List<ConfidenceRating> confidenceRatingList = new ArrayList();
+        confidenceRatingList.add(confidenceRating);
+        evidenceItem.setConfidenceRatings(confidenceRatingList);
+
+        List<CredibilityRating> credibilityRatingList = new ArrayList();
+        credibilityRatingList.add(credibilityRating);
+        evidenceSource.setCredibilityRatings(credibilityRatingList);
+        evidenceSource.setResearchDesign(researchDesign);
+        
+        List<EvidenceItem> evidenceItemList = new ArrayList();
+        evidenceItemList.add(evidenceItem);
+        evidenceSource.setEvidenceItems(null);
+
+        methodologyFacade.create(methodology);
+        System.out.println("methodology...ok");
+        methodFacade.create(method);
+        System.out.println("method...ok");
+        credibilityRatingFacade.create(credibilityRating);
+        System.out.println("credrating...ok");
+        researchDesignFacade.create(researchDesign);
+        System.out.println("researchdesign...ok");
+        confidenceRatingFacade.create(confidenceRating);
+        System.out.println("confidence...ok");
+        evidenceItemFacade.create(evidenceItem);
+        System.out.println("evidenceItem...ok");
+        evidenceSourceFacade.create(evidenceSource);
+        System.out.println("evidenceSource...ok");
+    }
+
 }

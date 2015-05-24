@@ -194,8 +194,6 @@ public class SubmitStudyServlet extends HttpServlet {
     }
 
     public void createJPASubmittable() {
-        //Setting a fake CredibilityRating
-        //CredibilityRating credibilityRating = new CredibilityRating();
         ConfidenceRating confidenceRating = new ConfidenceRating();
         
         List<Methodology> methodologyList = new ArrayList();
