@@ -7,7 +7,7 @@
     </head>
     <body>
         <div id="header">
-            <h1><a href="WEB-INF/index.jsp">SERLER <br/>
+            <h1><a href="index.jsp">SERLER <br/>
                     <p>Software Engineering Research Laboratory Education Repository</p></a></h1>
             <h2>
                 Login<br/><br/>
@@ -23,8 +23,9 @@
             <div id="colOne">
                 <div id="menu">
                     <ul>
-                        <li><a href="/WEB-INF/index.jsp" accesskey="1" title="">Home</a></li>
-                        <li><a href="/display.jsp" accesskey="2" title="">Advanced Search </a></li>
+                        <li><a href="index.jsp" accesskey="1" title="">Home</a></li>
+                        <li><a href="advancedSearch.jsp" accesskey="2" title="">Advanced Search </a></li>
                         <li><a href="#" accesskey="3" title="">Profile</a></li>
+                        <li><a href="StudyFormServlet" accesskey="3" title="">Add Evidence</a></li>
                     </ul>
                 </div>
