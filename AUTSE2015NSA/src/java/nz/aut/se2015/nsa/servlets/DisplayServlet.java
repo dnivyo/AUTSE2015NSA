@@ -368,9 +368,10 @@ public class DisplayServlet extends HttpServlet {
             }
         }
     }
+
     public void createJPASubmittable() {
         ConfidenceRating confidenceRating = new ConfidenceRating();
-        
+
         List<Methodology> methodologyList = new ArrayList();
         methodologyList.add(methodology);
         method.setMethodologies(methodologyList);
@@ -387,7 +388,7 @@ public class DisplayServlet extends HttpServlet {
         credibilityRatingList.add(credibilityRating);
         evidenceSource.setCredibilityRatings(credibilityRatingList);
         evidenceSource.setResearchDesign(researchDesign);
-        
+
         List<EvidenceItem> evidenceItemList = new ArrayList();
         evidenceItemList.add(evidenceItem);
         evidenceSource.setEvidenceItems(null);

@@ -86,7 +86,7 @@
 
     <form action="/AUTSE2015NSA/DisplayServlet" method="POST">
         <input type="submit" name="previous" value="Previous"/>
-        <input type="submit" name="saveToDB" value="Save to DB"/>
+        <input type="submit" name="saveToDB" value="Save"/>
     </form>
 </div>
 </div>

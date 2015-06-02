@@ -15,7 +15,7 @@
         </p>
         <p>
             Description <br/>
-            <input type="text" name="methodDescription" value="<jsp:getProperty name="method" property="description"/>"/>
+            <textarea cols="70" rows="7" name="methodDescription" value="<jsp:getProperty name="method" property="description"/>"> </textarea>
         </p>
         <h3>Methodology</h3>
         <p>
@@ -24,7 +24,7 @@
         </p>
         <p>
             Description <br/>
-            <input type="text" name="methodologyDescription" value="<jsp:getProperty name="methodology" property="description"/>"/>
+            <textarea cols="70" rows="7" name="methodologyDescription" value="<jsp:getProperty name="methodology" property="description"/>"> </textarea>
         </p>
         <input type="submit" name="previous" value="Previous"/> <input type="submit" name="next" value="Next"/>
     </form>
