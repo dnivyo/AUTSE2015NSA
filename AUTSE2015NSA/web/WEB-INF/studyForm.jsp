@@ -41,8 +41,14 @@
         </p>
         <h3>Credibility Rating</h3>
         <p>
+            <!--Might need persistence editing..-->
             Credibility level <br/>
-            <input type="text" name="credibilityLevel" value="<jsp:getProperty name="credibilityRating" property="credibilityLevel"/>"/>
+            1 <input type="radio" id="star1" name="credibilityLevel" value="1" />
+            2 <input type="radio" id="star2" name="credibilityLevel" value="2" />
+            3 <input type="radio" id="star3" name="credibilityLevel" value="3" />
+            4 <input type="radio" id="star4" name="credibilityLevel" value="4" />
+            5 <input type="radio" id="star5" name="credibilityLevel" value="5" />
+<!--        <input type="text" name="credibilityLevel" value="<jsp:getProperty name="credibilityRating" property="credibilityLevel"/>"/>-->
         </p>
         <p>
             Reason <br/>
