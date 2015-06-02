@@ -51,14 +51,6 @@ public class EvidenceItemFormServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("EvidenceItemFormServlet: doGet");
         httpSession = request.getSession(true);
-
-//        //Check if there is allready an evidenceItem bean in the session.
-//        if (httpSession.getAttribute("evidenceItem") == null) {
-//            evidenceItem = new EvidenceItem();
-//            httpSession.setAttribute("evidenceItem", evidenceItem);
-//        } else {
-//            evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
-//        }
         this.setAllParameters(request);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/evidenceItemForm.jsp");
         dispatcher.forward(request, response);
@@ -78,40 +70,16 @@ public class EvidenceItemFormServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("EvidenceItemFormServlet: doPost");
         httpSession = request.getSession(true);
-
-//        //Check if there is allready an evidenceItem bean in the session.
-//        if (httpSession.getAttribute("evidenceItem") == null) {
-//            evidenceItem = new EvidenceItem();
-//            httpSession.setAttribute("evidenceItem", evidenceItem);
-//        } else {
-//            evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
-//        }
-//        
-//        evidenceItem.setContextHow(request.getParameter("contextHow"));
-//        evidenceItem.setContextWhat(request.getParameter("contextWhat"));
-//        evidenceItem.setContextWhen(request.getParameter("contextWhen"));
-//        evidenceItem.setContextWhere(request.getParameter("contextWhere"));
-//        evidenceItem.setContextWho(request.getParameter("contextWho"));
-//        evidenceItem.setContextWhy(request.getParameter("contextWhy"));
-//        evidenceItem.setBenefitOutcome(request.getParameter("benefitOutcome"));
-//        evidenceItem.setEvidenceItemResult(request.getParameter("evidenceItemResult"));
-//        evidenceItem.setMethodImplementationIntegrity(request.getParameter("methodImplementationIntegrity"));
-//        
-//        httpSession.setAttribute("evidenceItem", evidenceItem);
-        //evidenceItemFacade.create(evidenceItem);
-        //evidenceItemFacade.edit(evidenceItem);
         this.setAllParameters(request);
         
         // Check if next or previous was clicked
-        String url = "/WEB-INF/methodForm.jsp";
+        String url = "/WEB-INF/display.jsp";
         if (request.getParameter("previous") != null) {
-            url = "/WEB-INF/studyForm.jsp";
+            url = "/WEB-INF/methodForm.jsp";
         }
         
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodItemForm.jsp");        
         dispatcher.forward(request, response);
-        //dispatcher.include(request, response);
     }
 
     public void setAllParameters(HttpServletRequest request) {

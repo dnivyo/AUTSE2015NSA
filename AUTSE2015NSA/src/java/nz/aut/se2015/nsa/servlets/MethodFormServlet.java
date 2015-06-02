@@ -47,22 +47,6 @@ public class MethodFormServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("MethodFormServlet: doGet");
         httpSession = request.getSession(true);
-
-//        //Check if there is allready an method bean in the session.
-//        if (httpSession.getAttribute("method") == null) {
-//            method = new Method();
-//            httpSession.setAttribute("method", method);
-//        } else {
-//            method = (Method) httpSession.getAttribute("method");
-//        }
-//
-//        //Check if there is allready an methodology bean in the session.
-//        if (httpSession.getAttribute("methodology") == null) {
-//            methodology = new Methodology();
-//            httpSession.setAttribute("methodology", methodology);
-//        } else {
-//            methodology = (Methodology) httpSession.getAttribute("methodology");
-//        }
         this.setAllParameters(request);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodForm.jsp");
         dispatcher.forward(request, response);
@@ -82,41 +66,16 @@ public class MethodFormServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("MethodFormServlet: doPost");
         httpSession = request.getSession(true);
-
-//        //Check if there is allready an method bean in the session.
-//        if (httpSession.getAttribute("method") == null){
-//            method = new Method();
-//            httpSession.setAttribute("method", method);
-//        } else{
-//            method = (Method) httpSession.getAttribute("method");
-//        }
-//        
-//        //Check if there is allready an methodology bean in the session.
-//        if (httpSession.getAttribute("methodology") == null){
-//            methodology = new Methodology();
-//            httpSession.setAttribute("methodology", methodology);
-//        } else{
-//            methodology = (Methodology) httpSession.getAttribute("methodology");
-//        }
-//        
-//        method.setName(request.getParameter("methodName"));
-//        method.setDescription(request.getParameter("methodDescription"));
-//        methodology.setName(request.getParameter("methodologyName"));
-//        methodology.setDescription(request.getParameter("methodologyDescription"));
-//        
-//        httpSession.setAttribute("method", method);
-//        httpSession.setAttribute("methodology", methodology);
         this.setAllParameters(request);
         
         // Check if next or previous was clicked
-        String url = "/WEB-INF/display.jsp";
+        String url = "/WEB-INF/evidenceItemForm.jsp";
         if (request.getParameter("previous") != null) {
-            url = "/WEB-INF/evidenceItemForm.jsp";
+            url = "/WEB-INF/studyForm.jsp";
         }
         
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
-        //dispatcher.include(request, response);
     }
     
     public void setAllParameters(HttpServletRequest request) {

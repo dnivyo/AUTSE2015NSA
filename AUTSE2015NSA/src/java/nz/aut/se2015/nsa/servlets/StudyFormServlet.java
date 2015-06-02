@@ -47,34 +47,9 @@ public class StudyFormServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("StudyFormServlet: doGet");
         httpSession = request.getSession(true);
-
-//        //Check if there is allready an evidenceSource bean in the session.
-//        if (httpSession.getAttribute("evidenceSource") == null) {
-//            evidenceSource = new EvidenceSource();
-//            httpSession.setAttribute("evidenceSource", evidenceSource);
-//        } else {
-//            evidenceSource = (EvidenceSource) httpSession.getAttribute("evidenceSource");
-//        }
-//
-//        //Check if there is allready an credibilityRating bean in the session.
-//        if (httpSession.getAttribute("credibilityRating") == null) {
-//            credibilityRating = new CredibilityRating();
-//            httpSession.setAttribute("credibilityRating", credibilityRating);
-//        } else {
-//            credibilityRating = (CredibilityRating) httpSession.getAttribute("credibilityRating");
-//        }
-//
-//        //Check if there is allready an researchDesign bean in the session.
-//        if (httpSession.getAttribute("researchDesign") == null) {
-//            researchDesign = new ResearchDesign();
-//            httpSession.setAttribute("researchDesign", researchDesign);
-//        } else {
-//            researchDesign = (ResearchDesign) httpSession.getAttribute("researchDesign");
-//        }
         this.setAllParameters(request);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/studyForm.jsp");
         dispatcher.forward(request, response);
-        //dispatcher.include(request, response);
     }
 
     /**
@@ -90,48 +65,9 @@ public class StudyFormServlet extends HttpServlet {
             throws ServletException, IOException {
         System.out.println("StudyFormServlet: doPost");
         httpSession = request.getSession(true);
-
-//        //Check if there is allready an evidenceSource bean in the session.
-//        if (httpSession.getAttribute("evidenceSource") == null){
-//            evidenceSource = new EvidenceSource();
-//            httpSession.setAttribute("evidenceSource", evidenceSource);
-//        } else {
-//            evidenceSource = (EvidenceSource) httpSession.getAttribute("evidenceSource");
-//        }
-//        
-//        //Check if there is allready an credibilityRating bean in the session.
-//        if (httpSession.getAttribute("credibilityRating") == null){
-//            credibilityRating = new CredibilityRating();
-//            httpSession.setAttribute("credibilityRating", credibilityRating);
-//        } else {
-//            credibilityRating = (CredibilityRating) httpSession.getAttribute("credibilityRating");
-//        }
-//        
-//        //Check if there is allready an researchDesign bean in the session.
-//        if (httpSession.getAttribute("researchDesign") == null){
-//            researchDesign = new ResearchDesign();
-//            httpSession.setAttribute("researchDesign", researchDesign);
-//        } else {
-//            researchDesign = (ResearchDesign) httpSession.getAttribute("researchDesign");
-//        }
-//        
-//        evidenceSource.setBibRef(request.getParameter("bibRef"));
-//        evidenceSource.setResearchLevel(request.getParameter("researchLevel"));
-//        credibilityRating.setCredibilityLevel(request.getParameter("credibilityLevel"));
-//        credibilityRating.setReason(request.getParameter("reason"));
-//        credibilityRating.setRater(request.getParameter("rater"));
-//        researchDesign.setQuestion(request.getParameter("question"));
-//        researchDesign.setMethod(request.getParameter("method"));
-//        researchDesign.setParticipants(request.getParameter("participants"));
-//        researchDesign.setMetrics(request.getParameter("metrics"));
-//        
-//        httpSession.setAttribute("evidenceSource", evidenceSource);
-//        httpSession.setAttribute("credibilityRating", credibilityRating);
-//        httpSession.setAttribute("researchDesign", researchDesign);
         this.setAllParameters(request);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/evidenceItemForm.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/methodForm.jsp");
         dispatcher.forward(request, response);
-        //dispatcher.include(request, response);
     }
 
     public void setAllParameters(HttpServletRequest request) {

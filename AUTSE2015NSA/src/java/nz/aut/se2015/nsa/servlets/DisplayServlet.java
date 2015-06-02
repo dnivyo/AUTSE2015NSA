@@ -95,7 +95,7 @@ public class DisplayServlet extends HttpServlet {
         // Check if next or previous was clicked
         String url = "/index.jsp";
         if (request.getParameter("previous") != null) {
-            url = "/WEB-INF/methodForm.jsp";
+            url = "/WEB-INF/evidenceItemForm.jsp";
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
