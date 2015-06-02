@@ -12,6 +12,22 @@
         <jsp:useBean id="ResearchDesign" class="nz.aut.se2015.nsa.persist.ResearchDesign" scope="session"/>
         <h3>Evidence Source</h3>
         <p>
+            Title <br/>
+            <input type="text" name="title" value="<jsp:getProperty name="evidenceSource" property="bibRef"/>"/>
+        </p>
+        <p>
+            Author <br/>
+            <input type="text" name="author" value="<jsp:getProperty name="evidenceSource" property="bibRef"/>"/>
+        </p>
+        <p>
+            Journal <br/>
+            <input type="text" name="journal" value="<jsp:getProperty name="evidenceSource" property="bibRef"/>"/>
+        </p>
+        <p>
+            Publishing year <br/>
+            <input type="text" name="publishingYear" value="<jsp:getProperty name="evidenceSource" property="bibRef"/>"/>
+        </p>
+        <p>
             Bib ref <br/>
             <input type="text" name="bibRef" value="<jsp:getProperty name="evidenceSource" property="bibRef"/>"/>
         </p>

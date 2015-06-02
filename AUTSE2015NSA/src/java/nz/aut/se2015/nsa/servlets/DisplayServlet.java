@@ -93,7 +93,7 @@ public class DisplayServlet extends HttpServlet {
         this.setAllParameters(request);
         this.createJPASubmittable();
         // Check if next or previous was clicked
-        String url = "/WEB-INF/index.jsp";
+        String url = "/index.jsp";
         if (request.getParameter("previous") != null) {
             url = "/WEB-INF/methodForm.jsp";
         }
