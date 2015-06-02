@@ -8,6 +8,22 @@
     <jsp:useBean id="ResearchDesign" class="nz.aut.se2015.nsa.persist.ResearchDesign" scope="session"/>
     <h3>Evidence Source</h3>
     <p>
+        <!--Needs to change the persistence name and property-->
+        Title: <jsp:getProperty name="evidenceSource" property="bibRef"/>
+    </p>
+    <p>
+        <!--Needs to change the persistence name and property-->
+        Author: <jsp:getProperty name="evidenceSource" property="bibRef"/>
+    </p>
+    <p>
+        <!--Needs to change the persistence name and property-->
+        Journal: <jsp:getProperty name="evidenceSource" property="bibRef"/>
+    </p>
+    <p>
+        <!--Needs to change the persistence name and property-->
+        Publishing year: <jsp:getProperty name="evidenceSource" property="bibRef"/>
+    </p>
+    <p>
         Bib ref: <jsp:getProperty name="evidenceSource" property="bibRef"/>
     </p>
     <p>
@@ -35,6 +51,23 @@
     </p>
     <p>
         Metrics: <jsp:getProperty name="researchDesign" property="metrics"/>
+    </p>
+
+    <h3>Method</h3>
+    <jsp:useBean id="Method" class="nz.aut.se2015.nsa.persist.Method" scope="session"/>
+    <jsp:useBean id="Methodology" class="nz.aut.se2015.nsa.persist.Methodology" scope="session"/>
+    <p>
+        Name: <jsp:getProperty name="method" property="name"/>
+    </p>
+    <p>
+        Description: <jsp:getProperty name="method" property="description"/>
+    </p>
+    <h3>Methodology</h3>
+    <p>
+        Name: <jsp:getProperty name="methodology" property="name"/>
+    </p>
+    <p>
+        Description: <jsp:getProperty name="methodology" property="description"/>
     </p>
 
     <h3>Evidence Item</h3>
@@ -65,23 +98,6 @@
     </p>
     <p>
         Method implementation integrity: <jsp:getProperty name="evidenceItem" property="methodImplementationIntegrity"/>
-    </p>
-
-    <jsp:useBean id="Method" class="nz.aut.se2015.nsa.persist.Method" scope="session"/>
-    <jsp:useBean id="Methodology" class="nz.aut.se2015.nsa.persist.Methodology" scope="session"/>
-    <h3>Method</h3>
-    <p>
-        Name: <jsp:getProperty name="method" property="name"/>
-    </p>
-    <p>
-        Description: <jsp:getProperty name="method" property="description"/>
-    </p>
-    <h3>Methodology</h3>
-    <p>
-        Name: <jsp:getProperty name="methodology" property="name"/>
-    </p>
-    <p>
-        Description: <jsp:getProperty name="methodology" property="description"/>
     </p>
 
     <form action="/AUTSE2015NSA/DisplayServlet" method="POST">

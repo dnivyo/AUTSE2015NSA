@@ -26,6 +26,15 @@ p, ul {
 	font-size: 11px;
 }
 
+/*input[type="text"] {
+    width: 300px;
+}*/
+
+textarea {
+    width: 400px;
+    height: 100px;
+}
+
 a:link {
 	color: #356AA0;
 }

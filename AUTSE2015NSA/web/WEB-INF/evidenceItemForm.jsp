@@ -34,11 +34,11 @@
         </p>
         <p>
             Benefit under test<br/>
-            <input type="text" name="benefitOutcome" value="<jsp:getProperty name="evidenceItem" property="benefitOutcome"/>"/>
+            <textarea cols="70" rows="7" name="benefitOutcome" value="<jsp:getProperty name="evidenceItem" property="benefitOutcome"/>"> </textarea>
         </p>
         <p>
             Result<br/>
-            <input type="text" name="evidenceItemResult" value="<jsp:getProperty name="evidenceItem" property="evidenceItemResult"/>"/>
+            <textarea cols="70" rows="7" name="evidenceItemResult" value="<jsp:getProperty name="evidenceItem" property="evidenceItemResult"/>"> </textarea>
         </p>
         <p>
             Method implementation integrity<br/>
