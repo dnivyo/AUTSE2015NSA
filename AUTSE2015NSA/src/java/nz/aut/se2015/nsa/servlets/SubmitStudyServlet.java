@@ -74,12 +74,12 @@ public class SubmitStudyServlet extends HttpServlet {
         httpSession = request.getSession(true);
         this.setAllParameters(request);
         this.createJPASubmittable();
-        
+
         //Creating a new session to avoid bugs in the JPA. 
         httpSession.invalidate();
         httpSession = request.getSession(true);
         this.setAllParameters(request);
-        
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/studyForm.jsp");
         dispatcher.forward(request, response);
     }
@@ -98,7 +98,7 @@ public class SubmitStudyServlet extends HttpServlet {
         httpSession = request.getSession(true);
         this.setAllParameters(request);
         this.createJPASubmittable();
-        
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/studyForm.jsp");
         dispatcher.forward(request, response);
     }
@@ -113,6 +113,10 @@ public class SubmitStudyServlet extends HttpServlet {
             if (request.getParameter("bibRef") != null) {
                 evidenceSource.setBibRef(request.getParameter("bibRef"));
                 evidenceSource.setResearchLevel(request.getParameter("researchLevel"));
+                evidenceSource.setAuthor(request.getParameter("author"));
+                evidenceSource.setJournal(request.getParameter("journal"));
+                evidenceSource.setPublishingYear(request.getParameter("publishingYear"));
+                evidenceSource.setTitle(request.getParameter("title"));
                 httpSession.setAttribute("evidenceSource", evidenceSource);
             }
         }
@@ -195,7 +199,7 @@ public class SubmitStudyServlet extends HttpServlet {
 
     public void createJPASubmittable() {
         ConfidenceRating confidenceRating = new ConfidenceRating();
-        
+
         List<Methodology> methodologyList = new ArrayList();
         methodologyList.add(methodology);
         method.setMethodologies(methodologyList);
@@ -212,7 +216,7 @@ public class SubmitStudyServlet extends HttpServlet {
         credibilityRatingList.add(credibilityRating);
         evidenceSource.setCredibilityRatings(credibilityRatingList);
         evidenceSource.setResearchDesign(researchDesign);
-        
+
         List<EvidenceItem> evidenceItemList = new ArrayList();
         evidenceItemList.add(evidenceItem);
         evidenceSource.setEvidenceItems(null);

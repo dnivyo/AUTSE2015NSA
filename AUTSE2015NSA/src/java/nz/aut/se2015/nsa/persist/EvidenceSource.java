@@ -28,6 +28,10 @@ public class EvidenceSource implements Serializable {
     
     private String bibRef;
     private String researchLevel;
+    private String title;
+    private String author;
+    private String journal;
+    private String publishingYear;
     
     @OneToMany
     private List<CredibilityRating> credibilityRatings;
@@ -39,6 +43,10 @@ public class EvidenceSource implements Serializable {
     public EvidenceSource() {
         this.bibRef = "";
         this.researchLevel = "";
+        this.author = "";
+        this.journal = "";
+        this.title = "";
+        this.publishingYear = "";
     }
     
     
@@ -114,6 +122,38 @@ public class EvidenceSource implements Serializable {
 
     public void setEvidenceItems(List<EvidenceItem> evidenceItems) {
         this.evidenceItems = evidenceItems;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getJournal() {
+        return journal;
+    }
+
+    public void setJournal(String journal) {
+        this.journal = journal;
+    }
+
+    public String getPublishingYear() {
+        return publishingYear;
+    }
+
+    public void setPublishingYear(String publishingYear) {
+        this.publishingYear = publishingYear;
     }
     
 }

@@ -9,19 +9,19 @@
     <h3>Evidence Source</h3>
     <p>
         <!--Needs to change the persistence name and property-->
-        Title: <jsp:getProperty name="evidenceSource" property="bibRef"/>
+        Title: <jsp:getProperty name="evidenceSource" property="title"/>
     </p>
     <p>
         <!--Needs to change the persistence name and property-->
-        Author: <jsp:getProperty name="evidenceSource" property="bibRef"/>
+        Author: <jsp:getProperty name="evidenceSource" property="author"/>
     </p>
     <p>
         <!--Needs to change the persistence name and property-->
-        Journal: <jsp:getProperty name="evidenceSource" property="bibRef"/>
+        Journal: <jsp:getProperty name="evidenceSource" property="journal"/>
     </p>
     <p>
         <!--Needs to change the persistence name and property-->
-        Publishing year: <jsp:getProperty name="evidenceSource" property="bibRef"/>
+        Publishing year: <jsp:getProperty name="evidenceSource" property="publishingYear"/>
     </p>
     <p>
         Bib ref: <jsp:getProperty name="evidenceSource" property="bibRef"/>

@@ -24,7 +24,7 @@ import nz.aut.se2015.nsa.persist.ResearchDesign;
  * @author erikzweidorff
  */
 public class MethodFormServlet extends HttpServlet {
-    
+
     EvidenceSource evidenceSource;
     CredibilityRating credibilityRating;
     ResearchDesign researchDesign;
@@ -67,17 +67,17 @@ public class MethodFormServlet extends HttpServlet {
         System.out.println("MethodFormServlet: doPost");
         httpSession = request.getSession(true);
         this.setAllParameters(request);
-        
+
         // Check if next or previous was clicked
         String url = "/WEB-INF/evidenceItemForm.jsp";
         if (request.getParameter("previous") != null) {
             url = "/WEB-INF/studyForm.jsp";
         }
-        
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }
-    
+
     public void setAllParameters(HttpServletRequest request) {
         //Check if there is allready an evidenceSource bean in the session.
         if (httpSession.getAttribute("evidenceSource") == null) {
@@ -88,6 +88,10 @@ public class MethodFormServlet extends HttpServlet {
             if (request.getParameter("bibRef") != null) {
                 evidenceSource.setBibRef(request.getParameter("bibRef"));
                 evidenceSource.setResearchLevel(request.getParameter("researchLevel"));
+                evidenceSource.setAuthor(request.getParameter("author"));
+                evidenceSource.setJournal(request.getParameter("journal"));
+                evidenceSource.setPublishingYear(request.getParameter("publishingYear"));
+                evidenceSource.setTitle(request.getParameter("title"));
                 httpSession.setAttribute("evidenceSource", evidenceSource);
             }
         }

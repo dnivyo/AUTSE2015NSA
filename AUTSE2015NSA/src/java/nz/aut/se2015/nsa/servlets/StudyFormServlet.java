@@ -80,6 +80,10 @@ public class StudyFormServlet extends HttpServlet {
             if (request.getParameter("bibRef") != null) {
                 evidenceSource.setBibRef(request.getParameter("bibRef"));
                 evidenceSource.setResearchLevel(request.getParameter("researchLevel"));
+                evidenceSource.setAuthor(request.getParameter("author"));
+                evidenceSource.setJournal(request.getParameter("journal"));
+                evidenceSource.setPublishingYear(request.getParameter("publishingYear"));
+                evidenceSource.setTitle(request.getParameter("title"));
                 httpSession.setAttribute("evidenceSource", evidenceSource);
             }
         }
