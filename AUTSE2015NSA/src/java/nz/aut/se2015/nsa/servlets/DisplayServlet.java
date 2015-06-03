@@ -215,7 +215,6 @@ public class DisplayServlet extends HttpServlet {
     }
 
     public void createJPASubmittable() {
-        ConfidenceRating confidenceRating = new ConfidenceRating();
 
         List<Methodology> methodologyList = new ArrayList();
         methodologyList.add(methodology);
