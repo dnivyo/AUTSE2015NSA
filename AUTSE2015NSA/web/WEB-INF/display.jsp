@@ -100,6 +100,18 @@
         Method implementation integrity: <jsp:getProperty name="evidenceItem" property="methodImplementationIntegrity"/>
     </p>
 
+    <h3>Confidence Rating</h3>
+    <jsp:useBean id="confidenceRating" class="nz.aut.se2015.nsa.persist.ConfidenceRating" scope="session"/>
+    <p>
+        Confidence level: <jsp:getProperty name="confidenceRating" property="confidenceLevel"/>
+    </p>
+    <p>
+        Reason: <jsp:getProperty name="confidenceRating" property="reason"/>
+    </p>
+    <p>
+        Rater: <jsp:getProperty name="confidenceRating" property="rater"/>
+    </p>
+
     <form action="/AUTSE2015NSA/DisplayServlet" method="POST">
         <input type="submit" name="previous" value="Previous"/>
         <input type="submit" name="saveToDB" value="Save"/>

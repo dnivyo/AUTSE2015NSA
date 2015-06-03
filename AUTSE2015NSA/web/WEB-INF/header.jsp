@@ -15,6 +15,7 @@
                 var row0 = document.createElement("tr");
                 var col0 = document.createElement("td");
                 
+                // Creates the list
                 var selectList0 = document.createElement("select");
                 selectList0.id = "myAndOr";
 
@@ -25,6 +26,7 @@
                     selectList0.appendChild(option0);
                 }
                 
+                // Adds the list to the col & row
                 col0.appendChild(selectList0);
                 row0.appendChild(col0);
                 
