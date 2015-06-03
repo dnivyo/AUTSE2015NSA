@@ -8,10 +8,6 @@
 <jsp:include page="WEB-INF/header.jsp" />
 <div style="padding: 20px;">
     <h2>Advanced Search</h2>
-    <p>Methodology: <input type="text"> Keyword: <input type="text"></p>
-    <p>Rating: <input type="text"> Author:  <input type="text"> </p>
-    <p>Year: <input type="text"> </p>
-
     <form>
         <table id="fieldTable">
             <tr>

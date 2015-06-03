@@ -7,9 +7,28 @@
 
         <script type="text/javascript">
             var n = 2;
+            var array0 = ["AND", "OR"];
             var array = ["Author", "Title", "Year", "Methodology", "Method"];
             function addField(tableid)
             {
+                // Creates row/col for and/or dropdown
+                var row0 = document.createElement("tr");
+                var col0 = document.createElement("td");
+                
+                var selectList0 = document.createElement("select");
+                selectList0.id = "myAndOr";
+
+                for (var i = 0; i < array0.length; i++) {
+                    var option0 = document.createElement("option");
+                    option0.value = array0[i];
+                    option0.text = array0[i];
+                    selectList0.appendChild(option0);
+                }
+                
+                col0.appendChild(selectList0);
+                row0.appendChild(col0);
+                
+                //Creates a selection list and search input field
                 var row = document.createElement("tr");
                 var col1 = document.createElement("td");
                 var col2 = document.createElement("td");
@@ -34,12 +53,14 @@
                 col3.appendChild(document.createTextNode("Search: "));
                 col3.appendChild(input);
 
+                row0.appendChild(col0);
                 row.appendChild(col1);
                 row.appendChild(col2);
                 row.appendChild(col3);
 
                 var table = document.getElementById(tableid);
 
+                table.appendChild(row0);
                 table.appendChild(row);
                 n++;
             }

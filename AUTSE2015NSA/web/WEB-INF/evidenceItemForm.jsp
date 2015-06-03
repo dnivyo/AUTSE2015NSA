@@ -34,15 +34,35 @@
         </p>
         <p>
             Benefit under test<br/>
-            <textarea cols="70" rows="7" name="benefitOutcome" value="<jsp:getProperty name="evidenceItem" property="benefitOutcome"/>"> </textarea>
+            <textarea name="benefitOutcome" value="<jsp:getProperty name="evidenceItem" property="benefitOutcome"/>"></textarea>
         </p>
         <p>
             Result<br/>
-            <textarea cols="70" rows="7" name="evidenceItemResult" value="<jsp:getProperty name="evidenceItem" property="evidenceItemResult"/>"> </textarea>
+            <textarea name="evidenceItemResult" value="<jsp:getProperty name="evidenceItem" property="evidenceItemResult"/>"></textarea>
         </p>
         <p>
             Method implementation integrity<br/>
             <input type="text" name="methodImplementationIntegrity" value="<jsp:getProperty name="evidenceItem" property="methodImplementationIntegrity"/>"/>
+        </p>
+        <h3>Confidence Rating</h3>
+        <jsp:useBean id="confidenceRating" class="nz.aut.se2015.nsa.persist.ConfidenceRating" scope="session"/>
+        <p>
+            Confidence level <br/>
+            1 <input type="radio" id="star1" name="confidenceRatingConfidenceLevel" value="1" />
+            2 <input type="radio" id="star2" name="confidenceRatingConfidenceLevel" value="2" />
+            3 <input type="radio" id="star3" name="confidenceRatingConfidenceLevel" value="3" />
+            4 <input type="radio" id="star4" name="confidenceRatingConfidenceLevel" value="4" />
+            5 <input type="radio" id="star5" name="confidenceRatingConfidenceLevel" value="5" />
+        </p>
+        <p>
+            <!--Needs persistence stuff-->
+            Reason<br />
+            <textarea name="confidenceRatingReason" value="<jsp:getProperty name="evidenceItem" property="methodImplementationIntegrity"/>"></textarea>
+        </p>
+        <p>
+            <!--Needs persistence stuff-->
+            Rater<br />
+            <input type="text" name="confidenceRatingRater" value="<jsp:getProperty name="evidenceItem" property="methodImplementationIntegrity"/>"/>
         </p>
         <input type="submit" name="previous" value="Previous"/>
         <input type="submit" name="next" value="Next"/>

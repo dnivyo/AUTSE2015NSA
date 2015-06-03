@@ -90,12 +90,18 @@ public class DisplayServlet extends HttpServlet {
             throws ServletException, IOException {
         httpSession = request.getSession(true);
 
-        this.setAllParameters(request);
-        this.createJPASubmittable();
-        // Check if next or previous was clicked
         String url = "/index.jsp";
-        if (request.getParameter("previous") != null) {
-            url = "/WEB-INF/evidenceItemForm.jsp";
+        
+        try {
+            this.setAllParameters(request);
+            this.createJPASubmittable();
+            // Check if next or previous was clicked
+            if (request.getParameter("previous") != null) {
+                url = "/WEB-INF/evidenceItemForm.jsp";
+            }
+        } catch (Exception e) {
+            System.err.println("Unbale to submit to database: " + e);
+            url = "/WEB-INF/error.jsp";
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
