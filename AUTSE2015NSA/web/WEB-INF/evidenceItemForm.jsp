@@ -57,12 +57,12 @@
         <p>
             <!--Needs persistence stuff-->
             Reason<br />
-            <textarea name="confidenceRatingReason" value="<jsp:getProperty name="evidenceItem" property="methodImplementationIntegrity"/>"></textarea>
+            <textarea name="confidenceRatingReason" value="<jsp:getProperty name="confidenceRating" property="reason"/>"></textarea>
         </p>
         <p>
             <!--Needs persistence stuff-->
             Rater<br />
-            <input type="text" name="confidenceRatingRater" value="<jsp:getProperty name="evidenceItem" property="methodImplementationIntegrity"/>"/>
+            <input type="text" name="confidenceRatingRater" value="<jsp:getProperty name="confidenceRating" property="rater"/>"/>
         </p>
         <input type="submit" name="previous" value="Previous"/>
         <input type="submit" name="next" value="Next"/>
