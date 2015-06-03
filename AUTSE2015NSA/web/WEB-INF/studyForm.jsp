@@ -12,22 +12,18 @@
         <jsp:useBean id="ResearchDesign" class="nz.aut.se2015.nsa.persist.ResearchDesign" scope="session"/>
         <h3>Evidence Source</h3>
         <p>
-            <!--Needs to change the persistence name and property-->
             Title <br/>
             <input type="text" name="title" value="<jsp:getProperty name="evidenceSource" property="title"/>"/>
         </p>
         <p>
-            <!--Needs to change the persistence name and property-->
             Author <br/>
             <input type="text" name="author" value="<jsp:getProperty name="evidenceSource" property="author"/>"/>
         </p>
         <p>
-            <!--Needs to change the persistence name and property-->
             Journal <br/>
             <input type="text" name="journal" value="<jsp:getProperty name="evidenceSource" property="journal"/>"/>
         </p>
         <p>
-            <!--Needs to change the persistence name and property-->
             Publishing year <br/>
             <input type="text" name="publishingYear" value="<jsp:getProperty name="evidenceSource" property="publishingYear"/>"/>
         </p>
@@ -52,7 +48,7 @@
         </p>
         <p>
             Reason <br/>
-            <textarea name="reason" value="<jsp:getProperty name="credibilityRating" property="reason"/>"> </textarea>
+            <textarea name="reason" ><jsp:getProperty name="credibilityRating" property="reason"/></textarea>
         </p>
         <p>
             Rater <br/>
