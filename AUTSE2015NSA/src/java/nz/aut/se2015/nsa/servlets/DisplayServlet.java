@@ -55,6 +55,7 @@ public class DisplayServlet extends HttpServlet {
     CredibilityRating credibilityRating;
     ResearchDesign researchDesign;
     EvidenceItem evidenceItem;
+    ConfidenceRating confidenceRating;
     Method method;
     Methodology methodology;
     HttpSession httpSession;
@@ -147,185 +148,19 @@ public class DisplayServlet extends HttpServlet {
                 httpSession.setAttribute("researchDesign", researchDesign);
             }
         }
-
-        //Check if there is allready an evidenceItem bean in the session.
-        if (httpSession.getAttribute("evidenceItem") == null) {
-            evidenceItem = new EvidenceItem();
-            httpSession.setAttribute("evidenceItem", evidenceItem);
+        
+        //Check if there is allready a confidenceRating bean in the session
+        if (httpSession.getAttribute("confidenceRating") == null) {
+            confidenceRating = new ConfidenceRating();
+            httpSession.setAttribute("confidenceRating", confidenceRating);
         } else {
-            evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
-            if (request.getParameter("contextHow") != null) {
-                evidenceItem.setContextHow(request.getParameter("contextHow"));
-                evidenceItem.setContextWhat(request.getParameter("contextWhat"));
-                evidenceItem.setContextWhen(request.getParameter("contextWhen"));
-                evidenceItem.setContextWhere(request.getParameter("contextWhere"));
-                evidenceItem.setContextWho(request.getParameter("contextWho"));
-                evidenceItem.setContextWhy(request.getParameter("contextWhy"));
-                evidenceItem.setBenefitOutcome(request.getParameter("benefitOutcome"));
-                evidenceItem.setEvidenceItemResult(request.getParameter("evidenceItemResult"));
-                evidenceItem.setMethodImplementationIntegrity(request.getParameter("methodImplementationIntegrity"));
-                httpSession.setAttribute("evidenceItem", evidenceItem);
+            confidenceRating = (ConfidenceRating) httpSession.getAttribute("confidenceRating");
+            if (request.getParameter("") != null) {
+                confidenceRating.setConfidenceLevel(request.getParameter("confidenceRatingConfidenceLevel"));
+                confidenceRating.setRater(request.getParameter("confidenceRatingRater"));
+                confidenceRating.setReason(request.getParameter("confidenceRatingReason"));
             }
         }
-
-        //Check if there is allready an method bean in the session.
-        if (httpSession.getAttribute("method") == null) {
-            method = new Method();
-            httpSession.setAttribute("method", method);
-        } else {
-            method = (Method) httpSession.getAttribute("method");
-            if (request.getParameter("methodName") != null) {
-                method.setName(request.getParameter("methodName"));
-                method.setDescription(request.getParameter("methodDescription"));
-                httpSession.setAttribute("method", method);
-            }
-        }
-
-        //Check if there is allready an methodology bean in the session.
-        if (httpSession.getAttribute("methodology") == null) {
-            methodology = new Methodology();
-            httpSession.setAttribute("methodology", methodology);
-        } else {
-            methodology = (Methodology) httpSession.getAttribute("methodology");
-            if (request.getParameter("methodologyName") != null) {
-                methodology.setName(request.getParameter("methodologyName"));
-                methodology.setDescription(request.getParameter("methodologyDescription"));
-                httpSession.setAttribute("methodology", methodology);
-            }
-        }
-
-        //Check if there is allready an evidenceSource bean in the session.
-        if (httpSession.getAttribute("evidenceSource") == null) {
-            evidenceSource = new EvidenceSource();
-            httpSession.setAttribute("evidenceSource", evidenceSource);
-        } else {
-            evidenceSource = (EvidenceSource) httpSession.getAttribute("evidenceSource");
-            if (request.getParameter("bibRef") != null) {
-                evidenceSource.setBibRef(request.getParameter("bibRef"));
-                evidenceSource.setResearchLevel(request.getParameter("researchLevel"));
-                httpSession.setAttribute("evidenceSource", evidenceSource);
-            }
-        }
-
-        //Check if there is allready an credibilityRating bean in the session.
-        if (httpSession.getAttribute("credibilityRating") == null) {
-            credibilityRating = new CredibilityRating();
-            httpSession.setAttribute("credibilityRating", credibilityRating);
-        } else {
-            credibilityRating = (CredibilityRating) httpSession.getAttribute("credibilityRating");
-            if (request.getParameter("credibilityLevel") != null) {
-                credibilityRating.setCredibilityLevel(request.getParameter("credibilityLevel"));
-                credibilityRating.setReason(request.getParameter("reason"));
-                credibilityRating.setRater(request.getParameter("rater"));
-                httpSession.setAttribute("credibilityRating", credibilityRating);
-            }
-        }
-
-        //Check if there is allready an researchDesign bean in the session.
-        if (httpSession.getAttribute("researchDesign") == null) {
-            researchDesign = new ResearchDesign();
-            httpSession.setAttribute("researchDesign", researchDesign);
-        } else {
-            researchDesign = (ResearchDesign) httpSession.getAttribute("researchDesign");
-            if (request.getParameter("question") != null) {
-                researchDesign.setQuestion(request.getParameter("question"));
-                researchDesign.setMethod(request.getParameter("method"));
-                researchDesign.setParticipants(request.getParameter("participants"));
-                researchDesign.setMetrics(request.getParameter("metrics"));
-                httpSession.setAttribute("researchDesign", researchDesign);
-            }
-        }
-
-        //Check if there is allready an evidenceItem bean in the session.
-        if (httpSession.getAttribute("evidenceItem") == null) {
-            evidenceItem = new EvidenceItem();
-            httpSession.setAttribute("evidenceItem", evidenceItem);
-        } else {
-            evidenceItem = (EvidenceItem) httpSession.getAttribute("evidenceItem");
-            if (request.getParameter("contextHow") != null) {
-                evidenceItem.setContextHow(request.getParameter("contextHow"));
-                evidenceItem.setContextWhat(request.getParameter("contextWhat"));
-                evidenceItem.setContextWhen(request.getParameter("contextWhen"));
-                evidenceItem.setContextWhere(request.getParameter("contextWhere"));
-                evidenceItem.setContextWho(request.getParameter("contextWho"));
-                evidenceItem.setContextWhy(request.getParameter("contextWhy"));
-                evidenceItem.setBenefitOutcome(request.getParameter("benefitOutcome"));
-                evidenceItem.setEvidenceItemResult(request.getParameter("evidenceItemResult"));
-                evidenceItem.setMethodImplementationIntegrity(request.getParameter("methodImplementationIntegrity"));
-                httpSession.setAttribute("evidenceItem", evidenceItem);
-            }
-        }
-
-        //Check if there is allready an method bean in the session.
-        if (httpSession.getAttribute("method") == null) {
-            method = new Method();
-            httpSession.setAttribute("method", method);
-        } else {
-            method = (Method) httpSession.getAttribute("method");
-            if (request.getParameter("methodName") != null) {
-                method.setName(request.getParameter("methodName"));
-                method.setDescription(request.getParameter("methodDescription"));
-                httpSession.setAttribute("method", method);
-            }
-        }
-
-        //Check if there is allready an methodology bean in the session.
-        if (httpSession.getAttribute("methodology") == null) {
-            methodology = new Methodology();
-            httpSession.setAttribute("methodology", methodology);
-        } else {
-            methodology = (Methodology) httpSession.getAttribute("methodology");
-            if (request.getParameter("methodologyName") != null) {
-                methodology.setName(request.getParameter("methodologyName"));
-                methodology.setDescription(request.getParameter("methodologyDescription"));
-                httpSession.setAttribute("methodology", methodology);
-            }
-        }
-
-        //Check if there is allready an evidenceSource bean in the session.
-        if (httpSession.getAttribute("evidenceSource") == null) {
-            evidenceSource = new EvidenceSource();
-            httpSession.setAttribute("evidenceSource", evidenceSource);
-        } else {
-            evidenceSource = (EvidenceSource) httpSession.getAttribute("evidenceSource");
-            if (request.getParameter("bibRef") != null) {
-                evidenceSource.setBibRef(request.getParameter("bibRef"));
-                evidenceSource.setResearchLevel(request.getParameter("researchLevel"));
-                httpSession.setAttribute("evidenceSource", evidenceSource);
-            }
-        }
-
-        //Check if there is allready an credibilityRating bean in the session.
-        if (httpSession.getAttribute("credibilityRating") == null) {
-            credibilityRating = new CredibilityRating();
-            httpSession.setAttribute("credibilityRating", credibilityRating);
-        } else {
-            credibilityRating = (CredibilityRating) httpSession.getAttribute("credibilityRating");
-            if (request.getParameter("credibilityLevel") != null) {
-                credibilityRating.setCredibilityLevel(request.getParameter("credibilityLevel"));
-                credibilityRating.setReason(request.getParameter("reason"));
-                credibilityRating.setRater(request.getParameter("rater"));
-                httpSession.setAttribute("credibilityRating", credibilityRating);
-            }
-        }
-
-        //Check if there is allready an researchDesign bean in the session.
-        if (httpSession.getAttribute("researchDesign") == null) {
-            researchDesign = new ResearchDesign();
-            httpSession.setAttribute("researchDesign", researchDesign);
-
-        } else {
-            researchDesign = (ResearchDesign) httpSession.getAttribute("researchDesign");
-            if (request.getParameter("question") != null) {
-                researchDesign.setQuestion(request.getParameter("question"));
-                researchDesign.setMethod(request.getParameter("method"));
-                researchDesign.setParticipants(request.getParameter("participants"));
-                researchDesign.setMetrics(request.getParameter("metrics"));
-                httpSession.setAttribute("researchDesign", researchDesign);
-            }
-
-        }
-
         //Check if there is allready an evidenceItem bean in the session.
         if (httpSession.getAttribute("evidenceItem") == null) {
             evidenceItem = new EvidenceItem();

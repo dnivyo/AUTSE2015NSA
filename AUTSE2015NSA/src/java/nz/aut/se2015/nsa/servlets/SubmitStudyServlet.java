@@ -54,6 +54,7 @@ public class SubmitStudyServlet extends HttpServlet {
     EvidenceSource evidenceSource;
     CredibilityRating credibilityRating;
     ResearchDesign researchDesign;
+    ConfidenceRating confidenceRating;
     EvidenceItem evidenceItem;
     Method method;
     Methodology methodology;
@@ -147,6 +148,19 @@ public class SubmitStudyServlet extends HttpServlet {
                 researchDesign.setParticipants(request.getParameter("participants"));
                 researchDesign.setMetrics(request.getParameter("metrics"));
                 httpSession.setAttribute("researchDesign", researchDesign);
+            }
+        }
+
+        //Check if there is allready a confidenceRating bean in the session
+        if (httpSession.getAttribute("confidenceRating") == null) {
+            confidenceRating = new ConfidenceRating();
+            httpSession.setAttribute("confidenceRating", confidenceRating);
+        } else {
+            confidenceRating = (ConfidenceRating) httpSession.getAttribute("confidenceRating");
+            if (request.getParameter("") != null) {
+                confidenceRating.setConfidenceLevel(request.getParameter("confidenceRatingConfidenceLevel"));
+                confidenceRating.setRater(request.getParameter("confidenceRatingRater"));
+                confidenceRating.setReason(request.getParameter("confidenceRatingReason"));
             }
         }
 

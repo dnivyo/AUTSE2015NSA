@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import nz.aut.se2015.nsa.persist.ConfidenceRating;
 import nz.aut.se2015.nsa.persist.CredibilityRating;
 import nz.aut.se2015.nsa.persist.EvidenceItem;
 import nz.aut.se2015.nsa.persist.EvidenceItemFacadeLocal;
@@ -32,6 +33,7 @@ public class EvidenceItemFormServlet extends HttpServlet {
     
     EvidenceSource evidenceSource;
     CredibilityRating credibilityRating;
+    ConfidenceRating confidenceRating;
     ResearchDesign researchDesign;
     EvidenceItem evidenceItem;
     Method method;
@@ -130,6 +132,19 @@ public class EvidenceItemFormServlet extends HttpServlet {
                 httpSession.setAttribute("researchDesign", researchDesign);
             }
 
+        }
+        
+        //Check if there is allready a confidenceRating bean in the session
+        if (httpSession.getAttribute("confidenceRating") == null) {
+            confidenceRating = new ConfidenceRating();
+            httpSession.setAttribute("confidenceRating", confidenceRating);
+        } else {
+            confidenceRating = (ConfidenceRating) httpSession.getAttribute("confidenceRating");
+            if (request.getParameter("") != null) {
+                confidenceRating.setConfidenceLevel(request.getParameter("confidenceRatingConfidenceLevel"));
+                confidenceRating.setRater(request.getParameter("confidenceRatingRater"));
+                confidenceRating.setReason(request.getParameter("confidenceRatingReason"));
+            }
         }
 
         //Check if there is allready an evidenceItem bean in the session.
