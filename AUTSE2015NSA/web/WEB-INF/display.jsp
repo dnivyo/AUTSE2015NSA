@@ -8,19 +8,15 @@
     <jsp:useBean id="ResearchDesign" class="nz.aut.se2015.nsa.persist.ResearchDesign" scope="session"/>
     <h3>Evidence Source</h3>
     <p>
-        <!--Needs to change the persistence name and property-->
         Title: <jsp:getProperty name="evidenceSource" property="title"/>
     </p>
     <p>
-        <!--Needs to change the persistence name and property-->
         Author: <jsp:getProperty name="evidenceSource" property="author"/>
     </p>
     <p>
-        <!--Needs to change the persistence name and property-->
         Journal: <jsp:getProperty name="evidenceSource" property="journal"/>
     </p>
     <p>
-        <!--Needs to change the persistence name and property-->
         Publishing year: <jsp:getProperty name="evidenceSource" property="publishingYear"/>
     </p>
     <p>

@@ -34,11 +34,11 @@
         </p>
         <p>
             Benefit under test<br/>
-            <textarea name="benefitOutcome" value="<jsp:getProperty name="evidenceItem" property="benefitOutcome"/>"></textarea>
+            <textarea name="benefitOutcome" ><jsp:getProperty name="evidenceItem" property="benefitOutcome"/></textarea>
         </p>
         <p>
             Result<br/>
-            <textarea name="evidenceItemResult" value="<jsp:getProperty name="evidenceItem" property="evidenceItemResult"/>"></textarea>
+            <textarea name="evidenceItemResult" ><jsp:getProperty name="evidenceItem" property="evidenceItemResult"/></textarea>
         </p>
         <p>
             Method implementation integrity<br/>
@@ -57,7 +57,7 @@
         <p>
             <!--Needs persistence stuff-->
             Reason<br />
-            <textarea name="confidenceRatingReason" value="<jsp:getProperty name="confidenceRating" property="reason"/>"></textarea>
+            <textarea name="confidenceRatingReason"><jsp:getProperty name="confidenceRating" property="reason"/></textarea>
         </p>
         <p>
             <!--Needs persistence stuff-->

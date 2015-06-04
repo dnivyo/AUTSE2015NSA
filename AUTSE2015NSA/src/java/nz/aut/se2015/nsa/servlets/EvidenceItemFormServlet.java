@@ -140,10 +140,11 @@ public class EvidenceItemFormServlet extends HttpServlet {
             httpSession.setAttribute("confidenceRating", confidenceRating);
         } else {
             confidenceRating = (ConfidenceRating) httpSession.getAttribute("confidenceRating");
-            if (request.getParameter("") != null) {
+            if (request.getParameter("confidenceRatingConfidenceLevel") != null) {
                 confidenceRating.setConfidenceLevel(request.getParameter("confidenceRatingConfidenceLevel"));
                 confidenceRating.setRater(request.getParameter("confidenceRatingRater"));
                 confidenceRating.setReason(request.getParameter("confidenceRatingReason"));
+                httpSession.setAttribute("confidenceRatinng", confidenceRating);
             }
         }
 

@@ -121,14 +121,14 @@ public class StudyFormServlet extends HttpServlet {
             }
 
         }
-        
-                //Check if there is allready a confidenceRating bean in the session
+
+        //Check if there is allready a confidenceRating bean in the session
         if (httpSession.getAttribute("confidenceRating") == null) {
             confidenceRating = new ConfidenceRating();
             httpSession.setAttribute("confidenceRating", confidenceRating);
         } else {
             confidenceRating = (ConfidenceRating) httpSession.getAttribute("confidenceRating");
-            if (request.getParameter("") != null) {
+            if (request.getParameter("confidenceRatingConfidenceLevel") != null) {
                 confidenceRating.setConfidenceLevel(request.getParameter("confidenceRatingConfidenceLevel"));
                 confidenceRating.setRater(request.getParameter("confidenceRatingRater"));
                 confidenceRating.setReason(request.getParameter("confidenceRatingReason"));

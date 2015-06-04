@@ -33,18 +33,22 @@
         </p>
         <p>
             Research level <br/>
-            <input type="text" name="researchLevel" value="<jsp:getProperty name="evidenceSource" property="researchLevel"/>"/>
+            I <input type="radio" id="star1" name="researchLevel" value="1" />: Systematic reviews <br />
+            II <input type="radio" id="star2" name="researchLevel" value="2" />: Single Experimental Studies (RCTs) <br />
+            III <input type="radio" id="star3" name="researchLevel" value="3" />: Quasi-experimental Studies <br />
+            IV <input type="radio" id="star4" name="researchLevel" value="4" />: Non-experimental studies <br />
+            V <input type="radio" id="star5" name="researchLevel" value="5" />: Case Report / Program Evaluation / Narrative Literature Reviews <br />
+            VI <input type="radio" id="star6" name="researchLevel" value="6" />: Opinion of Respected Authorities <br />
+            
         </p>
         <h3>Credibility Rating</h3>
         <p>
-            <!--Might need persistence editing..-->
             Credibility level <br/>
             1 <input type="radio" id="star1" name="credibilityLevel" value="1" />
             2 <input type="radio" id="star2" name="credibilityLevel" value="2" />
             3 <input type="radio" id="star3" name="credibilityLevel" value="3" />
             4 <input type="radio" id="star4" name="credibilityLevel" value="4" />
             5 <input type="radio" id="star5" name="credibilityLevel" value="5" />
-<!--        <input type="text" name="credibilityLevel" value="<jsp:getProperty name="credibilityRating" property="credibilityLevel"/>"/>-->
         </p>
         <p>
             Reason <br/>
