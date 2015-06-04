@@ -132,6 +132,7 @@ public class StudyFormServlet extends HttpServlet {
                 confidenceRating.setConfidenceLevel(request.getParameter("confidenceRatingConfidenceLevel"));
                 confidenceRating.setRater(request.getParameter("confidenceRatingRater"));
                 confidenceRating.setReason(request.getParameter("confidenceRatingReason"));
+                httpSession.setAttribute("confidenceRating", confidenceRating);
             }
         }
 
