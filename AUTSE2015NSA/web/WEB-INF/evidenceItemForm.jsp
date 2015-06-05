@@ -10,27 +10,27 @@
         <jsp:useBean id="evidenceItem" class="nz.aut.se2015.nsa.persist.EvidenceItem" scope="session"/>
         <p>
             Context: why <br/>
-            <input type="text" name="contextWhy" value="<jsp:getProperty name="evidenceItem" property="contextWhy"/>"/>
+            <input type="text" name="contextWhy" style="width: 300px;" value="<jsp:getProperty name="evidenceItem" property="contextWhy"/>"/>
         </p>
         <p>
             Context: who <br/>
-            <input type="text" name="contextWho" value="<jsp:getProperty name="evidenceItem" property="contextWho"/>"/>
+            <input type="text" name="contextWho" style="width: 300px;" value="<jsp:getProperty name="evidenceItem" property="contextWho"/>"/>
         </p>
         <p>
             Context: what <br/>
-            <input type="text" name="contextWhat" value="<jsp:getProperty name="evidenceItem" property="contextWhat"/>"/>
+            <input type="text" name="contextWhat" style="width: 300px;" value="<jsp:getProperty name="evidenceItem" property="contextWhat"/>"/>
         </p>
         <p>
             Context: where <br/>
-            <input type="text" name="contextWhere" value="<jsp:getProperty name="evidenceItem" property="contextWhere"/>"/>
+            <input type="text" name="contextWhere"style="width: 300px;"  value="<jsp:getProperty name="evidenceItem" property="contextWhere"/>"/>
         </p>
         <p>
             Context: when <br/>
-            <input type="text" name="contextWhen" value="<jsp:getProperty name="evidenceItem" property="contextWhen"/>"/>
+            <input type="text" name="contextWhen" style="width: 300px;" value="<jsp:getProperty name="evidenceItem" property="contextWhen"/>"/>
         </p>
         <p>
             Context: how <br/>
-            <input type="text" name="contextHow" value="<jsp:getProperty name="evidenceItem" property="contextHow"/>"/>
+            <input type="text" name="contextHow" style="width: 300px;" value="<jsp:getProperty name="evidenceItem" property="contextHow"/>"/>
         </p>
         <p>
             Benefit under test<br/>
@@ -42,7 +42,7 @@
         </p>
         <p>
             Method implementation integrity<br/>
-            <input type="text" name="methodImplementationIntegrity" value="<jsp:getProperty name="evidenceItem" property="methodImplementationIntegrity"/>"/>
+            <input type="text" name="methodImplementationIntegrity" style="width: 300px;" value="<jsp:getProperty name="evidenceItem" property="methodImplementationIntegrity"/>"/>
         </p>
         <h3>Confidence Rating</h3>
         <jsp:useBean id="confidenceRating" class="nz.aut.se2015.nsa.persist.ConfidenceRating" scope="session"/>
@@ -62,7 +62,7 @@
         <p>
             <!--Needs persistence stuff-->
             Rater<br />
-            <input type="text" name="confidenceRatingRater" value="<jsp:getProperty name="confidenceRating" property="rater"/>"/>
+            <input type="text" name="confidenceRatingRater" style="width: 300px;" value="<jsp:getProperty name="confidenceRating" property="rater"/>"/>
         </p>
         <input type="submit" name="previous" value="Previous"/>
         <input type="submit" name="next" value="Next"/>
