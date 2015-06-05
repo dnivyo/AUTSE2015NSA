@@ -13,23 +13,23 @@
         <h3>Evidence Source</h3>
         <p>
             Title <br/>
-            <input type="text" name="title" value="<jsp:getProperty name="evidenceSource" property="title"/>"/>
+            <input type="text" name="title" style="width: 300px;" value="<jsp:getProperty name="evidenceSource" property="title"/>"/>
         </p>
         <p>
             Author <br/>
-            <input type="text" name="author" value="<jsp:getProperty name="evidenceSource" property="author"/>"/>
+            <input type="text" name="author" style="width: 300px;" value="<jsp:getProperty name="evidenceSource" property="author"/>"/>
         </p>
         <p>
             Journal <br/>
-            <input type="text" name="journal" value="<jsp:getProperty name="evidenceSource" property="journal"/>"/>
+            <input type="text" name="journal" style="width: 300px;" value="<jsp:getProperty name="evidenceSource" property="journal"/>"/>
         </p>
         <p>
             Publishing year <br/>
-            <input type="text" name="publishingYear" value="<jsp:getProperty name="evidenceSource" property="publishingYear"/>"/>
+            <input type="text" name="publishingYear" style="width: 300px;" value="<jsp:getProperty name="evidenceSource" property="publishingYear"/>"/>
         </p>
         <p>
             Bib ref <br/>
-            <input type="text" name="bibRef" value="<jsp:getProperty name="evidenceSource" property="bibRef"/>"/>
+            <input type="text" name="bibRef" style="width: 300px;" value="<jsp:getProperty name="evidenceSource" property="bibRef"/>"/>
         </p>
         <p>
             Research level <br/>
@@ -56,24 +56,24 @@
         </p>
         <p>
             Rater <br/>
-            <input type="text" name="rater" value="<jsp:getProperty name="credibilityRating" property="rater"/>"/>
+            <input type="text" name="rater" style="width: 300px;" value="<jsp:getProperty name="credibilityRating" property="rater"/>"/>
         </p>
         <h3>Research Design</h3>
         <p>
             Question <br/>
-            <input type="text" name="question" value="<jsp:getProperty name="researchDesign" property="question"/>"/>
+            <input type="text" name="question" style="width: 300px;" value="<jsp:getProperty name="researchDesign" property="question"/>"/>
         </p>
         <p>
             Method <br/>
-            <input type="text" name="method" value="<jsp:getProperty name="researchDesign" property="method"/>"/>
+            <input type="text" name="method" style="width: 300px;" value="<jsp:getProperty name="researchDesign" property="method"/>"/>
         </p>
         <p>
             Participants <br/>
-            <input type="text" name="participants" value="<jsp:getProperty name="researchDesign" property="participants"/>"/>
+            <input type="text" name="participants" style="width: 300px;" value="<jsp:getProperty name="researchDesign" property="participants"/>"/>
         </p>
         <p>
             Metrics <br/>
-            <input type="text" name="metrics" value="<jsp:getProperty name="researchDesign" property="metrics"/>"/>
+            <input type="text" name="metrics" style="width: 300px;" value="<jsp:getProperty name="researchDesign" property="metrics"/>"/>
         </p>
         <input type="submit" value="Next"/>
     </form>

@@ -22,7 +22,7 @@
                         <option>...</option>
                     </select>
                 </td>
-                <td>Search: <input type="text" name="field1"</td>
+                <td>Search: <input type="text" name="field1" </td>
             </tr>
         </table>
         <table>

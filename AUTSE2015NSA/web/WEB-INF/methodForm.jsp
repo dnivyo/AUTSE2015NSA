@@ -11,7 +11,7 @@
         <h3>Method</h3>
         <p>
             Name <br/>
-            <input type="text" name="methodName" value="<jsp:getProperty name="method" property="name"/>"/>
+            <input type="text" name="methodName" style="width: 300px;" value="<jsp:getProperty name="method" property="name"/>"/>
         </p>
         <p>
             Description <br/>
@@ -20,7 +20,7 @@
         <h3>Methodology</h3>
         <p>
             Name <br/>
-            <input type="text" name="methodologyName" value="<jsp:getProperty name="methodology" property="name"/>"/>
+            <input type="text" name="methodologyName" style="width: 300px;" value="<jsp:getProperty name="methodology" property="name"/>"/>
         </p>
         <p>
             Description <br/>
